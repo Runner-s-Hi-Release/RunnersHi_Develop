@@ -3,18 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/splash_fragment">
+
     <fragment
-        android:id="@+id/splashFragment"
+        android:id="@+id/splash_fragment"
         android:name="com.example.runnershi_develop.SplashFragment"
-        android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
+
         <action
             android:id="@+id/action_splashFragment_to_homeViewPagerFragment"
-            app:destination="@id/homeViewPagerFragment" />
+            app:destination="@id/home_view_pager_fragment" />
+
     </fragment>
+
     <fragment
-        android:id="@+id/homeViewPagerFragment"
-        android:name="com.example.runnershi_develop.HomeViewPagerFragment"
-        android:label="HomeViewPagerFragment" />
+        android:id="@+id/home_view_pager_fragment"
+        android:name="com.example.runnershi_develop.HomeViewPagerFragment" >
+
+        <action
+            android:id="@+id/action_view_pager_fragment_to_fragment_badge_detail"
+            app:destination="@id/fragment_badge_detail" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_badge_detail"
+        android:name="com.example.runnershi_develop.BadgeDetailFragment"
+        tools:layout="@layout/fragment_badge_detail">
+
+        <argument
+            android:name="index"
+            app:argType="integer" />
+
+    </fragment>
+
 </navigation>
