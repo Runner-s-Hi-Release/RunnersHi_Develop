@@ -70,10 +70,6 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
 
-
     // lottie
     implementation 'com.airbnb.android:lottie:3.4.1'
-    //viewpager2
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
-
 }
