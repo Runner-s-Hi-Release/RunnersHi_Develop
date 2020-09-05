@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
+        <variable
+            name="viewModel"
+            type="com.example.runnershi_develop.viewmodels.BadgeItemViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/background"
+        android:paddingHorizontal="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickListener}">
+
+        <ImageView
+            android:id="@+id/image_badge"
+            android:layout_marginTop="24dp"
+            android:layout_width="88dp"
+            android:layout_height="117dp"
+            android:src="@drawable/badge_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:badgeIndex="@{viewModel.index}"
+            app:badge="@{viewModel.badge}"/>
+
+        <TextView
+            android:id="@+id/text_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="8sp"
+            android:fontFamily="@font/nanumsquareb"
+            android:layout_marginTop="11dp"
+            app:layout_constraintEnd_toEndOf="@+id/image_badge"
+            app:layout_constraintStart_toStartOf="@+id/image_badge"
+            app:layout_constraintTop_toBottomOf="@+id/image_badge"
+            app:badgeIndex="@{viewModel.index}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
