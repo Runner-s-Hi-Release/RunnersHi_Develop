@@ -7,7 +7,7 @@ import com.example.runnershi_develop.HomeViewPagerFragmentDirections
 import com.example.runnershi_develop.databinding.ListItemBadgeBinding
 import com.example.runnershi_develop.viewmodels.BadgeItemViewModel
 
-class MyProfileViewHolder(private val binding: ListItemBadgeBinding) : RecyclerView.ViewHolder(binding.root) {
+class BadgeViewHolder(private val binding: ListItemBadgeBinding) : RecyclerView.ViewHolder(binding.root) {
 
     init{
         binding.setClickListener { view ->

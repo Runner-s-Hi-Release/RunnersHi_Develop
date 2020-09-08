@@ -6,14 +6,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.runnershi_develop.R
-import com.example.runnershi_develop.viewholders.MyProfileViewHolder
+import com.example.runnershi_develop.viewholders.BadgeViewHolder
 
-class MyProfileBadgeAdapter: ListAdapter<Boolean, MyProfileViewHolder>(
+class MyProfileBadgeAdapter: ListAdapter<Boolean, BadgeViewHolder>(
     BadgeDiffCallback()
 ) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyProfileViewHolder {
-        return MyProfileViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BadgeViewHolder {
+        return BadgeViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
                 R.layout.list_item_badge, parent, false
@@ -21,7 +21,7 @@ class MyProfileBadgeAdapter: ListAdapter<Boolean, MyProfileViewHolder>(
         )
     }
 
-    override fun onBindViewHolder(holder: MyProfileViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BadgeViewHolder, position: Int) {
         holder.bind(getItem(position), position)
     }
 
