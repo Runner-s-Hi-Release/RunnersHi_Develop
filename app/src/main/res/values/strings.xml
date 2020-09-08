@@ -20,4 +20,10 @@
     <string name="logout">로그아웃</string>
     <string name="level">Lv.</string>
     <string name="score">Score</string>
+    <string name="win_lose">%s승 %s패</string>
+    <string-array name="level">
+        <item>초급</item>
+        <item>중급</item>
+        <item>고급</item>
+    </string-array>
 </resources>
