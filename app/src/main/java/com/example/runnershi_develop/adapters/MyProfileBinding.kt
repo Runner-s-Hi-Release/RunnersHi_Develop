@@ -23,24 +23,17 @@ fun bindProfileImage(view: ImageView, profile: Int){
 
 @BindingAdapter("win", "lose")
 fun bindSetScore(view: TextView, win: Int, lose: Int){
-    view.text = "${win}승 ${lose}패"
+    view.text = view.context.resources.getString(R.string.win_lose).format(win, lose)
 }
 
 @BindingAdapter("level")
 fun bindLevel(view: TextView, level: Int){
     when (level) {
-        1 -> {
-            view.text = "초급"
-        }
-        2 -> {
-            view.text = "중급"
-        }
-        3 -> {
-            view.text = "고급"
+        1, 2, 3 -> {
+            view.text = view.context.resources.getStringArray(R.array.level)[level-1]
         }
         else -> {
             view.text = ""
         }
     }
 }
-
