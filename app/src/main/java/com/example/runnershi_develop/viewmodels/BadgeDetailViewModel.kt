@@ -14,7 +14,7 @@ class BadgeDetailViewModel internal constructor(
 
     init{
         viewModelScope.launch {
-            badgeDetail.postValue(getBadgeDetail())
+            badgeDetail.value = getBadgeDetail()
         }
     }
 
