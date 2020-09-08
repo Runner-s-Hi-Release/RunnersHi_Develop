@@ -14,60 +14,55 @@ fun bindBadgeText(view: TextView, badgeIndex: Int){
 }
 @BindingAdapter("badge", "badgeIndex")
 fun bindBadgeImage(view: ImageView, badge: Boolean, badgeIndex: Int){
-
-    val colorBadgeList = listOf(
-        R.drawable.img_badge_egg,
-        R.drawable.img_badge_chick,
-        R.drawable.img_badge_chicken,
-        R.drawable.img_badge_bat,
-        R.drawable.img_badge_bird,
-        R.drawable.img_badge_turtle,
-        R.drawable.img_badge_50,
-        R.drawable.img_badge_100,
-        R.drawable.img_badge_150,
-        R.drawable.img_badge_straight,
-        R.drawable.img_badge_speed,
-        R.drawable.img_badge_flame_color)
-
-    val blackBadgeList = listOf(
-        R.drawable.img_badge_egg_empty,
-        R.drawable.img_badge_chick_empty,
-        R.drawable.img_badge_chicken_empty,
-        R.drawable.img_badge_bat_empty,
-        R.drawable.img_badge_bird_empty,
-        R.drawable.img_badge_turtle_empty,
-        R.drawable.img_badge_50_empty,
-        R.drawable.img_badge_100_empty,
-        R.drawable.img_badge_150_empty,
-        R.drawable.img_badge_straight_empty,
-        R.drawable.img_badge_speed_empty,
-        R.drawable.img_badge_flame)
-
     if(badge) {
-        view.setImageResource(colorBadgeList[badgeIndex])
+        when(badgeIndex){
+            0 -> view.setImageResource(R.drawable.img_badge_egg)
+            1 -> view.setImageResource(R.drawable.img_badge_chick)
+            2 -> view.setImageResource(R.drawable.img_badge_chicken)
+            3 -> view.setImageResource(R.drawable.img_badge_bat)
+            4 -> view.setImageResource(R.drawable.img_badge_bird)
+            5 -> view.setImageResource(R.drawable.img_badge_turtle)
+            6 -> view.setImageResource(R.drawable.img_badge_50)
+            7 -> view.setImageResource(R.drawable.img_badge_100)
+            8 -> view.setImageResource(R.drawable.img_badge_150)
+            9 -> view.setImageResource(R.drawable.img_badge_straight)
+            10 -> view.setImageResource(R.drawable.img_badge_speed)
+            11 -> view.setImageResource(R.drawable.img_badge_flame_color)
+        }
     }
     else {
-        view.setImageResource(blackBadgeList[badgeIndex])
+        when(badgeIndex){
+            0 -> view.setImageResource(R.drawable.img_badge_egg_empty)
+            1 -> view.setImageResource(R.drawable.img_badge_chick_empty)
+            2 -> view.setImageResource(R.drawable.img_badge_chicken_empty)
+            3 -> view.setImageResource(R.drawable.img_badge_bat_empty)
+            4 -> view.setImageResource(R.drawable.img_badge_bird_empty)
+            5 -> view.setImageResource(R.drawable.img_badge_turtle_empty)
+            6 -> view.setImageResource(R.drawable.img_badge_50_empty)
+            7 -> view.setImageResource(R.drawable.img_badge_100_empty)
+            8 -> view.setImageResource(R.drawable.img_badge_150_empty)
+            9 -> view.setImageResource(R.drawable.img_badge_straight_empty)
+            10 -> view.setImageResource(R.drawable.img_badge_speed_empty)
+            11 -> view.setImageResource(R.drawable.img_badge_flame)
+        }
     }
 }
 
 @BindingAdapter("badgeIndex")
 fun bindBadgeDetailImage(view: ImageView, badgeIndex: Int){
-    val badgeList = listOf(
-        R.drawable.img_badge_egglarge,
-        R.drawable.img_badge_chicklarge,
-        R.drawable.img_badge_chickenlarge,
-        R.drawable.img_badge_batlarge,
-        R.drawable.img_badge_birdlarge,
-        R.drawable.img_badge_turtlelarge,
-        R.drawable.img_badge_50hourlarge,
-        R.drawable.img_badge_100hourlarge,
-        R.drawable.img_badge_150hourlarge,
-        R.drawable.img_badge_straightlarge,
-        R.drawable.img_badge_speedlarge,
-        R.drawable.img_badge_flamelarge
-    )
-    view.setImageResource(badgeList[badgeIndex])
-
+    when(badgeIndex){
+        0 -> view.setImageResource(R.drawable.img_badge_egglarge)
+        1 -> view.setImageResource(R.drawable.img_badge_chicklarge)
+        2 -> view.setImageResource(R.drawable.img_badge_chickenlarge)
+        3 -> view.setImageResource(R.drawable.img_badge_batlarge)
+        4 -> view.setImageResource(R.drawable.img_badge_birdlarge)
+        5 -> view.setImageResource(R.drawable.img_badge_turtlelarge)
+        6 -> view.setImageResource(R.drawable.img_badge_50hourlarge)
+        7 -> view.setImageResource(R.drawable.img_badge_100hourlarge)
+        8 -> view.setImageResource(R.drawable.img_badge_150hourlarge)
+        9 -> view.setImageResource(R.drawable.img_badge_straightlarge)
+        10 -> view.setImageResource(R.drawable.img_badge_speedlarge)
+        11 -> view.setImageResource(R.drawable.img_badge_flamelarge)
+    }
 }
 
