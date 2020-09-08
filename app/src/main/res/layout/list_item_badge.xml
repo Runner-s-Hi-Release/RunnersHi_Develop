@@ -7,8 +7,8 @@
             name="clickListener"
             type="android.view.View.OnClickListener"/>
         <variable
-            name="viewModel"
-            type="com.example.runnershi_develop.viewmodels.BadgeItemViewModel"/>
+            name="badge_data"
+            type="com.example.runnershi_develop.data.Badge"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,8 +26,8 @@
             android:src="@drawable/badge_data"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:badgeIndex="@{viewModel.index}"
-            app:badge="@{viewModel.badge}"/>
+            app:badgeIndex="@{badge_data.index}"
+            app:badge="@{badge_data.badge}"/>
 
         <TextView
             android:id="@+id/text_badge"
@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="@+id/image_badge"
             app:layout_constraintStart_toStartOf="@+id/image_badge"
             app:layout_constraintTop_toBottomOf="@+id/image_badge"
-            app:badgeIndex="@{viewModel.index}"/>
+            app:badgeIndex="@{badge_data.index}"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
