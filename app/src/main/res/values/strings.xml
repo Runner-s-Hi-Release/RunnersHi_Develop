@@ -26,4 +26,18 @@
         <item>중급</item>
         <item>고급</item>
     </string-array>
+    <string-array name="badge_title">
+        <item>첫승 달성</item>
+        <item>10승 달성</item>
+        <item>50승 달성</item>
+        <item>최고 페이스</item>
+        <item>최장 거리</item>
+        <item>최저 페이스</item>
+        <item>50시간 달성</item>
+        <item>100시간 달성</item>
+        <item>150시간 달성</item>
+        <item>10일 연속 러닝</item>
+        <item>연속 5승</item>
+        <item>연속 10승</item>
+    </string-array>
 </resources>
