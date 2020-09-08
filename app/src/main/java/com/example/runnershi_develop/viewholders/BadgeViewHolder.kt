@@ -13,7 +13,7 @@ class BadgeViewHolder(private val binding: ListItemBadgeBinding) : RecyclerView.
         binding.setClickListener { view ->
             binding.badgeData?.let { badgeData ->
                 if(badgeData.badge)
-                    navigateToPlant(badgeData.index, view)
+                    navigateToBadgeDetail(badgeData.index, view)
             }
         }
     }
@@ -28,7 +28,7 @@ class BadgeViewHolder(private val binding: ListItemBadgeBinding) : RecyclerView.
         }
     }
 
-    private fun navigateToPlant(index: Int, view: View) {
+    private fun navigateToBadgeDetail(index: Int, view: View) {
         val direction = HomeViewPagerFragmentDirections
             .actionViewPagerFragmentToFragmentBadgeDetail(index)
         view.findNavController().navigate(direction)
