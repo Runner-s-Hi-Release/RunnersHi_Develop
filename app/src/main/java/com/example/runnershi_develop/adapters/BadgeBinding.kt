@@ -7,11 +7,10 @@ import com.example.runnershi_develop.R
 
 @BindingAdapter("badgeIndex")
 fun bindBadgeText(view: TextView, badgeIndex: Int){
-    var tvBadgeName_profile : Array<String> = arrayOf("첫승 달성", "10승 달성", "50승 달성", "최고 페이스", "최장 거리", "최저 페이스", "50시간 달성",
-        "100시간 달성", "150시간 달성", "10일 연속 러닝", "연속 5승", "연속 10승")
-    view.text = tvBadgeName_profile[badgeIndex]
-
+    if(badgeIndex in 0..11)
+        view.text = view.context.resources.getStringArray(R.array.badge_title)[badgeIndex]
 }
+
 @BindingAdapter("badge", "badgeIndex")
 fun bindBadgeImage(view: ImageView, badge: Boolean, badgeIndex: Int){
     if(badge) {
