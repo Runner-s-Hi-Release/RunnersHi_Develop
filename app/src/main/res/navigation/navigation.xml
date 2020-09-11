@@ -25,7 +25,10 @@
 
         <action
             android:id="@+id/action_view_pager_fragment_to_fragment_badge_detail"
-            app:destination="@id/fragment_badge_detail"/>
+            app:destination="@id/fragment_badge_detail" />
+        <action
+            android:id="@+id/action_home_view_pager_fragment_to_recordDetailFragment"
+            app:destination="@id/recordDetailFragment" />
 
     </fragment>
 
@@ -36,8 +39,18 @@
 
         <argument
             android:name="index"
-            app:argType="integer"/>
+            app:argType="integer" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/recordDetailFragment"
+        android:name="com.example.runnershi_develop.RecordDetailFragment"
+        android:label="fragment_record_detail"
+        tools:layout="@layout/fragment_record_detail">
+        <argument
+            android:name="running"
+            app:argType="com.example.runnershi_develop.data.Running"
+            />
     </fragment>
 
 </navigation>
