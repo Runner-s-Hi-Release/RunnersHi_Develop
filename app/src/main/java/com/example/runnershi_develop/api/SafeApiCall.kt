@@ -18,12 +18,12 @@ data class ErrorResponse(
     val causes: Map<String, String> = emptyMap()
 )
 
-suspend fun <T>safeApiCall(call: suspend () -> T){
-    withContext(Dispatchers.IO){
+suspend fun <T>safeApiCall(call: suspend () -> T): ResultWrapper<T>{
+    return withContext(Dispatchers.IO){
         try{
             ResultWrapper.Success(call.invoke())
         }catch (throwable: Throwable){
-            when(throwable){
+             when(throwable){
                 is IOException -> ResultWrapper.NetworkError
                 is HttpException -> {
                     val code = throwable.code()
