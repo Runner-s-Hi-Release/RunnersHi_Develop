@@ -17,5 +17,6 @@ interface RequestInterface {
             : Response<ResponseData<BadgeDetail>>
 
     @GET("record/all")
-    fun requestRecord(@Header("token") token : String) : Call<ResponseData<Record>>
+    suspend fun requestRunning(@Header("token") token : String)
+            : ResponseData<List<NetworkRunning>>
 }
