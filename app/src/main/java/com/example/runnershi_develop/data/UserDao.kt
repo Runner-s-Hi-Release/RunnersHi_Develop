@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface UserDao {
     @Query("SELECT * FROM user LIMIT 1")
-    fun getUsers(): LiveData<User?>
+    fun getUser(): LiveData<User?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: User)

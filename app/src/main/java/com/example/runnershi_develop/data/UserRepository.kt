@@ -25,7 +25,7 @@ class UserRepository private constructor(
 
 
     fun getUser(): LiveData<User?> {
-        return userDao.getUsers()
+        return userDao.getUser()
     }
 
     companion object {
