@@ -14,9 +14,7 @@ class BadgeDetailRepository private constructor(
         }
         return null
     }
-
     companion object {
-
         // For Singleton instantiation
         @Volatile private var instance: BadgeDetailRepository? = null
 
