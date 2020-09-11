@@ -2,9 +2,11 @@ package com.example.runnershi_develop.data
 
 import com.google.gson.annotations.SerializedName
 
-data class Record (
+
+
+data class NetworkRunning (
     @SerializedName("date")
-    val createdTime : String,
+    val date : String,
     @SerializedName("distance")
     val distance : Int,
     @SerializedName("time")
@@ -16,3 +18,16 @@ data class Record (
     @SerializedName("game_idx")
     val gameIdx : Int
 )
+
+fun List<NetworkRunning>.asDatabaseModel(): List<DatabaseRunning>{
+    return this.map {
+        DatabaseRunning(
+            runIdx = it.runIdx,
+            gameIdx = it.gameIdx,
+            date = it.date,
+            myDistance = it.distance,
+            time = it.time,
+            result = it.result
+        )
+    }
+}
