@@ -29,7 +29,6 @@ class UserRepository private constructor(
     }
 
     companion object {
-
         @Volatile private var instance: UserRepository? = null
 
         fun getInstance(userDao: UserDao, service: RequestInterface) =
