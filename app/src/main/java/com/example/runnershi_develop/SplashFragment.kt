@@ -1,6 +1,5 @@
 package com.example.runnershi_develop
 
-import android.animation.Animator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

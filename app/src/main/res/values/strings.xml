@@ -17,4 +17,27 @@
     <string name="naver_id">6t807pncgs</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_title_text">나른한 오후,\n당신의 상대를\n찾아 함께 뛰어 보세요.</string>
+    <string name="logout">로그아웃</string>
+    <string name="level">Lv.</string>
+    <string name="score">Score</string>
+    <string name="win_lose">%s승 %s패</string>
+    <string-array name="level">
+        <item>초급</item>
+        <item>중급</item>
+        <item>고급</item>
+    </string-array>
+    <string-array name="badge_title">
+        <item>첫승 달성</item>
+        <item>10승 달성</item>
+        <item>50승 달성</item>
+        <item>최고 페이스</item>
+        <item>최장 거리</item>
+        <item>최저 페이스</item>
+        <item>50시간 달성</item>
+        <item>100시간 달성</item>
+        <item>150시간 달성</item>
+        <item>10일 연속 러닝</item>
+        <item>연속 5승</item>
+        <item>연속 10승</item>
+    </string-array>
 </resources>

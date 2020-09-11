@@ -3,7 +3,7 @@ package com.example.runnershi_develop.adapters
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.runnershi_develop.HomeFragment
-import com.example.runnershi_develop.MyPageFragment
+import com.example.runnershi_develop.MyProfileFragment
 import com.example.runnershi_develop.RankFragment
 import com.example.runnershi_develop.RecordFragment
 
@@ -22,7 +22,7 @@ class HomeViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) 
         HOME_PAGE_INDEX to { HomeFragment() },
         RECORD_PAGE_INDEX to { RecordFragment() },
         RANK_PAGE_INDEX to { RankFragment() },
-        MY_PAGE_PAGE_INDEX to { MyPageFragment() }
+        MY_PAGE_PAGE_INDEX to { MyProfileFragment() }
     )
 
     override fun getItemCount() = bottomNavigationFragmentsCreators.size
