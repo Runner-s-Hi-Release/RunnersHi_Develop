@@ -8,9 +8,9 @@ data class RunningDetail(
     @SerializedName("day")
     val day: Int,
     @SerializedName("start_time")
-    val start_time: String,
+    val startTime: String,
     @SerializedName("end_time")
-    val end_time: String,
+    val endTime: String,
     @SerializedName("coordinate")
     val coordinate: List<Coordinate>
 )
