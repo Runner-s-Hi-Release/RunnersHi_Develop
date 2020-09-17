@@ -6,9 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.runnershi_develop.R
+import com.example.runnershi_develop.data.Badge
 import com.example.runnershi_develop.viewholders.BadgeViewHolder
 
-class MyProfileBadgeAdapter: ListAdapter<Boolean, BadgeViewHolder>(
+class MyProfileBadgeAdapter(private val onClick: (badge: Badge?)-> Unit): ListAdapter<Boolean, BadgeViewHolder>(
     BadgeDiffCallback()
 ) {
 
@@ -17,7 +18,7 @@ class MyProfileBadgeAdapter: ListAdapter<Boolean, BadgeViewHolder>(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
                 R.layout.list_item_badge, parent, false
-            )
+            ), onClick
         )
     }
 
