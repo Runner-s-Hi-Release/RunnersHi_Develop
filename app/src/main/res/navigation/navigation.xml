@@ -35,8 +35,8 @@
         tools:layout="@layout/fragment_badge_detail">
 
         <argument
-            android:name="index"
-            app:argType="integer"/>
+            android:name="badge"
+            app:argType="com.example.runnershi_develop.data.Badge"/>
 
     </fragment>
 
