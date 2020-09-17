@@ -7,16 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.runnershi_develop.adapters.MyProfileBadgeAdapter
 import com.example.runnershi_develop.databinding.FragmentMyProfileBinding
 import com.example.runnershi_develop.utilities.InjectorUtils
 import com.example.runnershi_develop.viewmodels.MyProfileViewModel
-import androidx.lifecycle.observe
 
 class MyProfileFragment : Fragment() {
 
     private val myProfileViewModel: MyProfileViewModel by viewModels{
         InjectorUtils.provideMyProfileViewModelFactory(requireContext())
+    }
+    private val myProfileBadgeAdapter: MyProfileBadgeAdapter = MyProfileBadgeAdapter { badge ->
+        myProfileViewModel.displayBadgeDetail(badge)
     }
 
     override fun onCreateView(
@@ -27,27 +31,22 @@ class MyProfileFragment : Fragment() {
         ).apply{
             viewModel = myProfileViewModel
             lifecycleOwner = viewLifecycleOwner
-        }
-
-        val adapter = MyProfileBadgeAdapter()
-
-        binding.btnLogout.setOnClickListener{
-            myProfileViewModel.deleteUser()
-        }
-
-        binding.rvBadge.adapter =adapter
-
-        subscribeUi(adapter)
-
-        return binding.root
-    }
-
-    private fun subscribeUi(adapter: MyProfileBadgeAdapter) {
-        myProfileViewModel.user.observe(viewLifecycleOwner) { result ->
-            when(result){
-                null -> adapter.submitList(null)
-                else -> adapter.submitList(result.badges)
+            rvBadge.adapter = myProfileBadgeAdapter
+            btnLogout.setOnClickListener{
+                myProfileViewModel.deleteUser()
             }
         }
+
+        myProfileViewModel.navigateToBadgeDetail.observe(viewLifecycleOwner, Observer { badge ->
+            if(badge != null){
+                this.findNavController().navigate(
+                    HomeViewPagerFragmentDirections
+                        .actionViewPagerFragmentToFragmentBadgeDetail(badge)
+                )
+                myProfileViewModel.displayBadgeDetailDone()
+            }
+        })
+
+        return binding.root
     }
 }
