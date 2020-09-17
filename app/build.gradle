@@ -81,10 +81,9 @@ dependencies {
 
 
     // moshi converter
-    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
     // moshi for parsing the JSON format
-    def moshi_version = "1.9.3"
     implementation "com.squareup.moshi:moshi:$moshi_version"
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
