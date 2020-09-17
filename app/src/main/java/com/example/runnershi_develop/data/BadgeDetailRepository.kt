@@ -1,15 +1,15 @@
 package com.example.runnershi_develop.data
 
-import com.example.runnershi_develop.api.RequestInterface
-import com.example.runnershi_develop.utilities.apiCall
+import com.example.runnershi_develop.api.RequestToServer
+import com.example.runnershi_develop.api.ResultWrapper
+import com.example.runnershi_develop.api.safeApiCall
 
 class BadgeDetailRepository private constructor(
-    private val service: RequestInterface
 ) {
     suspend fun getBadgeDetail(token: String, index: Int): BadgeDetail? {
-        when(val result = apiCall(call = {service.requestBadgeDetail(token, index)})){
-            is RequestToServerResult.Success -> {
-                return result.data.result
+        when(val callResult = safeApiCall(call = { RequestToServer.service.requestBadgeDetail(token, index)})){
+            is ResultWrapper.Success -> {
+                return callResult.value.result
             }
         }
         return null
@@ -18,9 +18,9 @@ class BadgeDetailRepository private constructor(
         // For Singleton instantiation
         @Volatile private var instance: BadgeDetailRepository? = null
 
-        fun getInstance(service: RequestInterface) =
+        fun getInstance() =
             instance ?: synchronized(this) {
-                instance ?: BadgeDetailRepository(service).also { instance = it }
+                instance ?: BadgeDetailRepository().also { instance = it }
             }
     }
 }
