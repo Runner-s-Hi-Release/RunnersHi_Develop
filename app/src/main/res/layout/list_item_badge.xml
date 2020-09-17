@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener"/>
+            name="onClickListener"
+            type="com.example.runnershi_develop.utilities.OnClickListener" />
         <variable
             name="badge_data"
             type="com.example.runnershi_develop.data.Badge"/>
@@ -16,7 +16,7 @@
         android:paddingHorizontal="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="@{clickListener}">
+        android:onClick="@{()->onClickListener.onClick(badge_data)}">
 
         <ImageView
             android:id="@+id/image_badge"
