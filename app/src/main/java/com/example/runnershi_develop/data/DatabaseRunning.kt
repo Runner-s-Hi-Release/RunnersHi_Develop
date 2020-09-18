@@ -5,17 +5,6 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-data class Opponent(
-    @ColumnInfo(name = "opponent_nickname")
-    val nickName: String,
-    @ColumnInfo(name = "opponent_distance")
-    val distance: Int,
-    @ColumnInfo(name = "opponent_pace_minute")
-    val paceMinute: Int,
-    @ColumnInfo(name = "opponent_pace_second")
-    val paceSecond: Int
-)
-
 @Entity(tableName = "running")
 data class DatabaseRunning(
     @PrimaryKey
@@ -28,11 +17,12 @@ data class DatabaseRunning(
     val result: Int,
     @ColumnInfo(name = "my_distance")
     val myDistance: Int,
-    @ColumnInfo(name = "my_pace_minute")
-    val myPaceMinute: Int? = null,
-    @ColumnInfo(name = "my_pace_second")
-    val myPaceSecond: Int? = null,
-    @Embedded val opponent: Opponent? = null
+    @Embedded
+    val runningDetail: RunningDetail? = null,
+    @Embedded(prefix = "my_")
+    val myRunningDetail: MyRunningDetail? = null,
+    @Embedded(prefix = "opponent_")
+    val opponentRunningDetail: OpponentRunningDetail? = null
 )
 
 fun List<DatabaseRunning>.asDomainModel(): List<Running> {
@@ -47,6 +37,7 @@ fun List<DatabaseRunning>.asDomainModel(): List<Running> {
         )
     }
 }
+
 
 
 
