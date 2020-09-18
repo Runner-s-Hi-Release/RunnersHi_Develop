@@ -10,6 +10,7 @@ import com.example.runnershi_develop.data.UserRepository
 import com.example.runnershi_develop.viewmodels.BadgeDetailViewModelFactory
 import com.example.runnershi_develop.viewmodels.MyProfileViewModelFactory
 import com.example.runnershi_develop.viewmodels.RecordViewModelFactory
+import com.example.runnershi_develop.viewmodels.RunningDetailViewModelFactory
 
 object InjectorUtils {
 
@@ -51,6 +52,12 @@ object InjectorUtils {
     ): RecordViewModelFactory {
         return RecordViewModelFactory(getRunningRepository(context))
 
+    }
+
+    fun provideRunningDetailViewModelFactory(
+        context: Context, runIdx: Int, gameIdx: Int
+    ): RunningDetailViewModelFactory {
+        return RunningDetailViewModelFactory(getRunningRepository(context), runIdx, gameIdx)
     }
 
 }
