@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.runnershi_develop.databinding.FragmentRunningDetailBinding
 import com.example.runnershi_develop.utilities.InjectorUtils
@@ -28,6 +29,10 @@ class RunningDetailFragment : Fragment() {
         ).apply{
             viewModel = runningDetailViewModel
             lifecycleOwner = viewLifecycleOwner
+        }
+
+        binding.btnRecDetailBack.setOnClickListener{view ->
+            view.findNavController().navigateUp()
         }
 
         return binding.root
