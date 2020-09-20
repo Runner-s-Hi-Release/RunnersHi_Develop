@@ -21,6 +21,14 @@
     <string name="level">Lv.</string>
     <string name="score">Score</string>
     <string name="win_lose">%s승 %s패</string>
+    <string name="kilometer">킬로미터</string>
+    <string name="pace">페이스</string>
+    <string name="custom_pace">%s`%s``</string>
+    <string name="average_pace">평균 페이스</string>
+    <string name="running_time">러닝시간</string>
+    <string name="srecord">%s의 기록</string>
+    <string name="date_running">%d월 %d일의 러닝</string>
+    <string name="time_to_time">%s - %s</string>
     <string-array name="level">
         <item>초급</item>
         <item>중급</item>
