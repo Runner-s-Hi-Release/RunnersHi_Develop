@@ -46,7 +46,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         }
     }
 
-    suspend fun getRunningDetail(token: String, runIdx: Int): RunningDetail? {
+    suspend fun getRunningDetail(token: String, runIdx: Int): NetworkRunningDetail? {
         val callResult = safeApiCall {
             RequestToServer.create().requestRunningDetail(token, runIdx)
         }
