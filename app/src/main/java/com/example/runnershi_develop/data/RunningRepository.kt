@@ -84,14 +84,15 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
     suspend fun updateRunningDetail(runIdx: Int, runningDetail: RunningDetail?, myRunningDetail: MyRunningDetail?,
                                     opponentRunningDetail: OpponentRunningDetail?){
-        runningDao.updateRunning(
-            DataBaseRunningDetail(
-                runIdx = runIdx,
-                runningDetail = runningDetail,
-                myRunningDetail = myRunningDetail,
-                opponentRunningDetail = opponentRunningDetail
+        if(runningDetail != null && myRunningDetail != null)
+            runningDao.updateRunning(
+                DataBaseRunningDetail(
+                    runIdx = runIdx,
+                    runningDetail = runningDetail,
+                    myRunningDetail = myRunningDetail,
+                    opponentRunningDetail = opponentRunningDetail
+                )
             )
-        )
     }
 
     fun getRunning(runIdx: Int): LiveData<DatabaseRunning> {
