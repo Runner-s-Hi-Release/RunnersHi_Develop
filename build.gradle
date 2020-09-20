@@ -34,6 +34,7 @@ buildscript {
         uiAutomatorVersion = '2.2.0'
         viewPagerVersion = '1.0.0'
         workVersion = '2.4.0'
+        naverVersion = '3.9.1'
 
         user_access_key='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QxMSIsInBhc3N3b3JkIjoidGVzdDExIiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTYwMDQzODQ5MSwiZXhwIjoxNjAwNDc0NDkxfQ.qYjs7_wzAR7nY-wtWV-GS3V7DUKPQTi_BnVKEmjWMRc'
     }
@@ -54,6 +55,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://navercorp.bintray.com/maps'
+        }
     }
 }
 
