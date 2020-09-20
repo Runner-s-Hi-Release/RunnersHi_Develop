@@ -20,7 +20,7 @@ interface RequestInterface {
             : ResponseData<List<NetworkRunning>>
 
     @GET("/record/detail/{run_idx}")
-    suspend fun requestRunningDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):ResponseData<RunningDetail>
+    suspend fun requestRunningDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):ResponseData<NetworkRunningDetail>
 
     @GET("/record/run/{run_idx}")
     suspend fun requestMyRunningDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):ResponseData<MyRunningDetail>
