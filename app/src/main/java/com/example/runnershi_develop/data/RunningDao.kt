@@ -8,6 +8,6 @@ interface RunningDao {
     @Query("SELECT * FROM running")
     fun getRunning(): LiveData<List<DatabaseRunning>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertRunning(runnings: List<DatabaseRunning>)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertRunning(runnings: List<DatabaseRunning>)
 }
