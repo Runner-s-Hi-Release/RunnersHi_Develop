@@ -12,7 +12,7 @@ import retrofit2.HttpException
 
 class RunningRepository private constructor(private val runningDao: RunningDao) {
     val runnings: LiveData<List<Running>> = Transformations.map(
-        runningDao.getRunning()
+        runningDao.getRunnings()
     ){
         it.asDomainModel()
     }
@@ -44,6 +44,59 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
                 //todo
             }
         }
+    }
+
+    suspend fun getRunningDetail(token: String, runIdx: Int): NetworkRunningDetail? {
+        val callResult = safeApiCall {
+            RequestToServer.create().requestRunningDetail(token, runIdx)
+        }
+        when (callResult){
+            is Success -> {
+                return callResult.value.result
+            }
+        }
+        return null
+    }
+
+    suspend fun getMyRunningDetail(token: String, runIdx: Int): MyRunningDetail? {
+        val callResult = safeApiCall {
+            RequestToServer.create().requestMyRunningDetail(token, runIdx)
+        }
+        when (callResult){
+            is Success -> {
+                return callResult.value.result
+            }
+        }
+        return null
+    }
+
+    suspend fun getOpponentRunningDetail(token: String, gameIdx: Int): OpponentRunningDetail? {
+        val callResult = safeApiCall {
+            RequestToServer.create().requestOpponentRunningDetail(token, gameIdx)
+        }
+        when (callResult){
+            is Success -> {
+                return callResult.value.result
+            }
+        }
+        return null
+    }
+
+    suspend fun updateRunningDetail(runIdx: Int, runningDetail: RunningDetail?, myRunningDetail: MyRunningDetail?,
+                                    opponentRunningDetail: OpponentRunningDetail?){
+        if(runningDetail != null && myRunningDetail != null)
+            runningDao.updateRunning(
+                DataBaseRunningDetail(
+                    runIdx = runIdx,
+                    runningDetail = runningDetail,
+                    myRunningDetail = myRunningDetail,
+                    opponentRunningDetail = opponentRunningDetail
+                )
+            )
+    }
+
+    fun getRunning(runIdx: Int): LiveData<DatabaseRunning> {
+        return runningDao.getRunning(runIdx)
     }
 
     companion object {

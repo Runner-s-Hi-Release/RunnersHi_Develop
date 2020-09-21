@@ -44,9 +44,9 @@
     </fragment>
     <fragment
         android:id="@+id/recordDetailFragment"
-        android:name="com.example.runnershi_develop.RecordDetailFragment"
+        android:name="com.example.runnershi_develop.RunningDetailFragment"
         android:label="fragment_record_detail"
-        tools:layout="@layout/fragment_record_detail">
+        tools:layout="@layout/fragment_running_detail">
         <argument
             android:name="running"
             app:argType="com.example.runnershi_develop.data.Running"

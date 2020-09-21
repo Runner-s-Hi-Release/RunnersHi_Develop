@@ -38,11 +38,13 @@ class RecordFragment : Fragment() {
         })
 
         viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer {record ->
-            this.findNavController().navigate(
-                HomeViewPagerFragmentDirections
-                    .actionHomeViewPagerFragmentToRecordDetailFragment(record)
-            )
-            viewModel.displayRecordDetailDone()
+            record?.let{
+                this.findNavController().navigate(
+                    HomeViewPagerFragmentDirections
+                        .actionHomeViewPagerFragmentToRecordDetailFragment(record)
+                )
+                viewModel.displayRecordDetailDone()
+            }
         })
 
         return binding.root
