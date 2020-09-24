@@ -45,7 +45,7 @@ class RecordAdapter(private val onClickListener: OnClickListener) :
 
     companion object DiffCallback : DiffUtil.ItemCallback<Running>() {
         override fun areItemsTheSame(oldItem: Running, newItem: Running): Boolean {
-            return oldItem === newItem
+            return oldItem.runIdx == newItem.runIdx
         }
 
         override fun areContentsTheSame(oldItem: Running, newItem: Running): Boolean {
