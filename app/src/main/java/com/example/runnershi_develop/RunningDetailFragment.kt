@@ -44,7 +44,7 @@ class RunningDetailFragment : Fragment() {
             }
         }
 
-        childFragmentManager.beginTransaction().add(R.id.naver_map_layout, naverMapFragment, "TAG_PARENT").commit()
+        childFragmentManager.beginTransaction().add(R.id.naver_map_layout, naverMapFragment, "TAG_CHILD").commit()
 
         return binding.root
     }
