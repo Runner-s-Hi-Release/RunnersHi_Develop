@@ -1,7 +1,6 @@
 package com.example.runnershi_develop.utilities
 
 import android.content.Context
-import com.example.runnershi_develop.api.RequestToServer
 import com.example.runnershi_develop.data.AppDatabase
 import com.example.runnershi_develop.data.BadgeDetailRepository
 import com.example.runnershi_develop.data.RunningRepository
@@ -15,15 +14,12 @@ object InjectorUtils {
 
     private fun getUserRepository(context: Context): UserRepository {
         return UserRepository.getInstance(
-            AppDatabase.getInstance(context.applicationContext).userDao(),
-            RequestToServer.create()
+            AppDatabase.getInstance(context.applicationContext).userDao()
         )
     }
 
     private fun getBadgeDetailRepository(): BadgeDetailRepository {
-        return BadgeDetailRepository.getInstance(
-            RequestToServer.create()
-        )
+        return BadgeDetailRepository.getInstance()
     }
 
     private fun getRunningRepository(context: Context): RunningRepository {

@@ -18,7 +18,7 @@ class BadgeDetailFragment : Fragment() {
     private val args: BadgeDetailFragmentArgs by navArgs()
 
     private val badgeDetailViewModel: BadgeDetailViewModel by viewModels{
-        InjectorUtils.provideBadgeDetailViewModelFactory(args.index)
+        InjectorUtils.provideBadgeDetailViewModelFactory(args.badge.index)
     }
 
     override fun onCreateView(

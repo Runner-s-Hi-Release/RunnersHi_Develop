@@ -4,21 +4,21 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.runnershi_develop.R
+import com.example.runnershi_develop.extension.useGlide
 
 @BindingAdapter("profileImage")
 fun bindProfileImage(view: ImageView, profile: Int){
-    val imgvProfile : Array<Int> = arrayOf(
-        R.drawable.icon_redman_shorthair,
-        R.drawable.icon_blueman_shorthair,
-        R.drawable.icon_redman_basichair,
-        R.drawable.icon_blueman_permhair,
-        R.drawable.icon_redwomen_ponytail,
-        R.drawable.icon_bluewomen_ponytail,
-        R.drawable.icon_redwomen_shortmhair,
-        R.drawable.icon_bluewomen_permhair,
-        R.drawable.icon_redwomen_bunhair)
-    if(profile > 0)
-        view.setImageResource(imgvProfile[profile-1])
+    when(profile){
+        1 -> view.useGlide(R.drawable.icon_redman_shorthair)
+        2 -> view.useGlide(R.drawable.icon_blueman_shorthair)
+        3 -> view.useGlide(R.drawable.icon_redman_basichair)
+        4 -> view.useGlide(R.drawable.icon_blueman_permhair)
+        5 -> view.useGlide(R.drawable.icon_redwomen_ponytail)
+        6 -> view.useGlide(R.drawable.icon_bluewomen_ponytail)
+        7 -> view.useGlide(R.drawable.icon_redwomen_shortmhair)
+        8 -> view.useGlide(R.drawable.icon_bluewomen_permhair)
+        9 -> view.useGlide(R.drawable.icon_redwomen_bunhair)
+    }
 }
 
 @BindingAdapter("win", "lose")
