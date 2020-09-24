@@ -34,8 +34,10 @@ buildscript {
         uiAutomatorVersion = '2.2.0'
         viewPagerVersion = '1.0.0'
         workVersion = '2.4.0'
+        moshi_version = "1.9.3"
+        version_retrofit = "2.6.0"
+        user_access_key='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QxMSIsInBhc3N3b3JkIjoidGVzdDExIiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5OTMwNTc4OCwiZXhwIjoxNTk5MzQxNzg4fQ.bNaTXvLBoDd1PoHsA7kChuKj6_u6cvgY-jO2igqKf08'
         naverVersion = '3.9.1'
-
         user_access_key='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QxMSIsInBhc3N3b3JkIjoidGVzdDExIiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTYwMDQzODQ5MSwiZXhwIjoxNjAwNDc0NDkxfQ.qYjs7_wzAR7nY-wtWV-GS3V7DUKPQTi_BnVKEmjWMRc'
     }
 

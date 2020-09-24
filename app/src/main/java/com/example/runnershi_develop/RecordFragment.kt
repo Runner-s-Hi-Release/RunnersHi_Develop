@@ -24,7 +24,6 @@ class RecordFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = FragmentRecordBinding.inflate(inflater, container, false)
             .apply {
-                viewModel = viewModel
                 lifecycleOwner = this@RecordFragment
             }
 

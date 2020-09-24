@@ -4,10 +4,6 @@
     tools:context=".RecordFragment">
 
     <data>
-
-        <variable
-            name="viewModel"
-            type="com.example.runnershi_develop.viewmodels.RecordViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
