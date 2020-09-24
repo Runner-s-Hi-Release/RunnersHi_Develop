@@ -1,20 +1,25 @@
 package com.example.runnershi_develop.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
-import com.example.runnershi_develop.api.RequestInterface
-import com.example.runnershi_develop.utilities.apiCall
+import com.example.runnershi_develop.api.RequestToServer.Companion.service
+import com.example.runnershi_develop.api.ResultWrapper
+import com.example.runnershi_develop.api.safeApiCall
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class UserRepository private constructor(
-    private val userDao: UserDao,
-    private val service: RequestInterface
+    private val userDao: UserDao
 ) {
     suspend fun createUser(token: String) {
-        val result = apiCall(call = {service.requestmyProfile(token)})
+        val result = safeApiCall(call = {service.requestmyProfile(token)})
         withContext(Dispatchers.IO){
             when(result){
-                is RequestToServerResult.Success -> userDao.insertUser(result.data.result)
+                is ResultWrapper.Success -> {
+                    Log.d("result", result.value.result.nickname)
+                    userDao.insertUser(result.value.result)
+
+                }
             }
         }
     }
@@ -31,9 +36,9 @@ class UserRepository private constructor(
     companion object {
         @Volatile private var instance: UserRepository? = null
 
-        fun getInstance(userDao: UserDao, service: RequestInterface) =
+        fun getInstance(userDao: UserDao) =
                 instance ?: synchronized(this) {
-                    instance ?: UserRepository(userDao, service).also { instance = it }
+                    instance ?: UserRepository(userDao).also { instance = it }
                 }
     }
 }

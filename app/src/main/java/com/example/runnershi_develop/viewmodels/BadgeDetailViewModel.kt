@@ -10,16 +10,17 @@ class BadgeDetailViewModel internal constructor(
     private val badgeDetailRepository: BadgeDetailRepository,
     val index: Int
 ) : ViewModel() {
-    val badgeDetail: MutableLiveData<BadgeDetail> = MutableLiveData()
+    private val _badgeDetail: MutableLiveData<BadgeDetail?> = MutableLiveData()
+    val badgeDetail: LiveData<BadgeDetail?>
+        get() = _badgeDetail
 
     init{
-        viewModelScope.launch {
-            badgeDetail.value = getBadgeDetail()
+        getBadgeDetail()
+    }
+
+    private fun getBadgeDetail(){
+        viewModelScope.launch{
+            _badgeDetail.value = badgeDetailRepository.getBadgeDetail(BuildConfig.USER_ACCESS_KEY, index)
         }
     }
-
-    private suspend fun getBadgeDetail(): BadgeDetail?{
-        return badgeDetailRepository.getBadgeDetail(BuildConfig.USER_ACCESS_KEY, index)
-    }
-
 }
