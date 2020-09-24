@@ -58,7 +58,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         return null
     }
 
-    suspend fun getMyRunningDetail(token: String, runIdx: Int): MyRunningDetail? {
+    suspend fun getMyRunningDetail(token: String, runIdx: Int): NetworkMyRunningDetail? {
         val callResult = safeApiCall {
             RequestToServer.create().requestMyRunningDetail(token, runIdx)
         }
@@ -70,7 +70,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         return null
     }
 
-    suspend fun getOpponentRunningDetail(token: String, gameIdx: Int): OpponentRunningDetail? {
+    suspend fun getOpponentRunningDetail(token: String, gameIdx: Int): NetworkOpponentRunningDetail? {
         val callResult = safeApiCall {
             RequestToServer.create().requestOpponentRunningDetail(token, gameIdx)
         }
