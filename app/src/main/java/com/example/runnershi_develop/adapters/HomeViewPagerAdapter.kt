@@ -5,7 +5,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.runnershi_develop.HomeFragment
 import com.example.runnershi_develop.MyProfileFragment
 import com.example.runnershi_develop.RankFragment
-import com.example.runnershi_develop.RecordFragment
+import com.example.runnershi_develop.RunningFragment
 
 const val HOME_PAGE_INDEX = 0
 const val RECORD_PAGE_INDEX = 1
@@ -20,7 +20,7 @@ class HomeViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) 
      */
     private val bottomNavigationFragmentsCreators: Map<Int, () -> Fragment> = mapOf(
         HOME_PAGE_INDEX to { HomeFragment() },
-        RECORD_PAGE_INDEX to { RecordFragment() },
+        RECORD_PAGE_INDEX to { RunningFragment() },
         RANK_PAGE_INDEX to { RankFragment() },
         MY_PAGE_PAGE_INDEX to { MyProfileFragment() }
     )

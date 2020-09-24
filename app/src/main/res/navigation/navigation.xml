@@ -25,7 +25,10 @@
 
         <action
             android:id="@+id/action_view_pager_fragment_to_fragment_badge_detail"
-            app:destination="@id/fragment_badge_detail"/>
+            app:destination="@id/fragment_badge_detail" />
+        <action
+            android:id="@+id/action_home_view_pager_fragment_to_runningDetailFragment"
+            app:destination="@id/runningDetailFragment" />
 
     </fragment>
 
@@ -38,6 +41,16 @@
             android:name="badge"
             app:argType="com.example.runnershi_develop.data.Badge"/>
 
+    </fragment>
+    <fragment
+        android:id="@+id/runningDetailFragment"
+        android:name="com.example.runnershi_develop.RunningDetailFragment"
+        android:label="fragment_running_detail"
+        tools:layout="@layout/fragment_running_detail">
+        <argument
+            android:name="running"
+            app:argType="com.example.runnershi_develop.data.Running"
+            />
     </fragment>
 
 </navigation>

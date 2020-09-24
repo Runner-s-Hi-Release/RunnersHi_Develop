@@ -13,4 +13,16 @@ interface RequestInterface {
     @GET("record/badge/detail/{flag}")
     suspend fun requestBadgeDetail(@Header("token") token : String, @Path("flag") flag : Int): ResponseData<BadgeDetail>
 
+    @GET("record/all")
+    suspend fun requestRunning(@Header("token") token : String)
+            : ResponseData<List<NetworkRunning>>
+
+    @GET("/record/detail/{run_idx}")
+    suspend fun requestRunningDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):ResponseData<NetworkRunningDetail>
+
+    @GET("/record/run/{run_idx}")
+    suspend fun requestMyRunningDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):ResponseData<NetworkMyRunningDetail>
+
+    @GET("/record/opponent/{game_idx}")
+    suspend fun requestOpponentRunningDetail(@Header("token") token :String, @Path("game_idx") game_idx :Int):ResponseData<NetworkOpponentRunningDetail>
 }
