@@ -10,8 +10,8 @@ import com.example.runnershi_develop.data.Running
 import com.example.runnershi_develop.databinding.ListItemRecordBinding
 
 
-class RecordAdapter(private val onClickListener: OnClickListener) :
-    ListAdapter<Running, RecordAdapter.ViewHolder>(DiffCallback) {
+class RunningAdapter(private val onClickListener: OnClickListener) :
+    ListAdapter<Running, RunningAdapter.ViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ListItemRecordBinding.inflate(
             LayoutInflater.from(parent.context)
