@@ -1,14 +1,8 @@
 package com.example.runnershi_develop.utilities
 
 import android.content.Context
-import com.example.runnershi_develop.data.AppDatabase
-import com.example.runnershi_develop.data.BadgeDetailRepository
-import com.example.runnershi_develop.data.RunningRepository
-import com.example.runnershi_develop.data.UserRepository
-import com.example.runnershi_develop.viewmodels.BadgeDetailViewModelFactory
-import com.example.runnershi_develop.viewmodels.MyProfileViewModelFactory
-import com.example.runnershi_develop.viewmodels.RunningViewModelFactory
-import com.example.runnershi_develop.viewmodels.RunningDetailViewModelFactory
+import com.example.runnershi_develop.data.*
+import com.example.runnershi_develop.viewmodels.*
 
 object InjectorUtils {
 
@@ -26,6 +20,10 @@ object InjectorUtils {
         return RunningRepository.getInstance(
             AppDatabase.getInstance(context.applicationContext).runningDao
         )
+    }
+
+    private fun getRankingRepository(): RankingRepository {
+        return RankingRepository.getInstance()
     }
 
     fun provideMyProfileViewModelFactory(
@@ -55,4 +53,8 @@ object InjectorUtils {
         return RunningDetailViewModelFactory(getRunningRepository(context), runIdx, gameIdx)
     }
 
+    fun provideRankingViewModelFactory(
+    ): RankingViewModelFactory {
+        return RankingViewModelFactory(getRankingRepository())
+    }
 }
