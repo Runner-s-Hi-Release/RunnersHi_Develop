@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <data>
+        <variable
+            name="rankingRunner"
+            type="com.example.runnershi_develop.data.RankingRunner" />
+    </data>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/whitebox_1_rankfragment_ranking">
+        <ImageView
+            android:id="@+id/background_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/lankingbadge" />
+
+        <TextView
+            android:id="@+id/tv_rank_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_medium"
+            android:paddingBottom="1dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/background_rank"
+            app:layout_constraintEnd_toEndOf="@+id/background_rank"
+            app:layout_constraintStart_toStartOf="@+id/background_rank"
+            app:layout_constraintTop_toTopOf="@+id/background_rank" />
+
+        <ImageView
+            android:id="@+id/imgv_rank_profile"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:profileImage="@{rankingRunner}" />
+
+        <TextView
+            android:id="@+id/tv_rank_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nanumsquareb"
+            app:nickName="@{rankingRunner}"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgv_rank_profile" />
+
+        <TextView
+            android:id="@+id/tv_rank_data"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="18dp"
+            app:scoreOrDistance="@{rankingRunner}"
+            android:fontFamily="@font/nanumsquarer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="8sp"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rank_nick_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+</layout>
