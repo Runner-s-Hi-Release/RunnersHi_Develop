@@ -18,13 +18,4 @@ object RequestToServer{
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(RequestInterface::class.java)
-
-        fun create(): RequestInterface {
-            return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(RequestInterface::class.java)
-        }
 }
