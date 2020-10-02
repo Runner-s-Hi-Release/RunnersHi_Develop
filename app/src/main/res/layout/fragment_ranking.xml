@@ -66,7 +66,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_ranking_heavy_runner_desc"
-                app:listData="@{viewModel.heavyRunners}" />
+                app:rankingList="@{viewModel.heavyRunners}" />
 
             <TextView
                 android:id="@+id/tv_ranking_winning_runner"
@@ -108,7 +108,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_ranking_winning_runner_desc"
-                app:listData="@{viewModel.winningRunners}" />
+                app:rankingList="@{viewModel.winningRunners}" />
 
             <TextView
                 android:id="@+id/tv_ranking_losing_runner_title"
@@ -150,7 +150,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_ranking_losing_runner_desc"
-                app:listData="@{viewModel.losingRunners}" />
+                app:rankingList="@{viewModel.losingRunners}" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline2"
