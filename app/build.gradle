@@ -76,10 +76,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
     implementation "com.naver.maps:map-sdk:$rootProject.naverVersion"
-
-    // lottie
-    implementation 'com.airbnb.android:lottie:3.4.1'
-
+    implementation "com.airbnb.android:lottie:$rootProject.lottieVersion"
 
     // moshi converter
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
