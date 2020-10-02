@@ -32,17 +32,17 @@ class RankingViewModel internal constructor(
     }
 
     private fun getRankingRunner(){
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             try {
-                _heavyRunners.postValue(rankingRepository.getHeavyRunner(BuildConfig.USER_ACCESS_KEY))
-                _winningRunners.postValue(rankingRepository.getWinningRunner(BuildConfig.USER_ACCESS_KEY))
-                _losingRunners.postValue(rankingRepository.getLosingRunner(BuildConfig.USER_ACCESS_KEY))
-                _status.postValue(RankingApiStatus.DONE)
+                _heavyRunners.value = rankingRepository.getHeavyRunner(BuildConfig.USER_ACCESS_KEY)
+                _winningRunners.value = rankingRepository.getWinningRunner(BuildConfig.USER_ACCESS_KEY)
+                _losingRunners.value=rankingRepository.getLosingRunner(BuildConfig.USER_ACCESS_KEY)
+                _status.value = RankingApiStatus.DONE
             } catch (e: Exception) {
-                _status.postValue(RankingApiStatus.ERROR)
-                _heavyRunners.postValue(ArrayList())
-                _winningRunners.postValue(ArrayList())
-                _losingRunners.postValue(ArrayList())
+                _status.value = RankingApiStatus.ERROR
+                _heavyRunners.value = ArrayList()
+                _winningRunners.value = ArrayList()
+                _losingRunners.value = ArrayList()
             }
         }
     }
