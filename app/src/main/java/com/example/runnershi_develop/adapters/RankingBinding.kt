@@ -1,7 +1,10 @@
 package com.example.runnershi_develop.adapters
 
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.runnershi_develop.R
@@ -51,4 +54,29 @@ fun bindProfileImage(view: ImageView, item: RankingRunner) {
         else -> R.drawable.icon_redwomen_bunhair
     }
     view.useGlide(itemImage)
+}
+
+@BindingAdapter("networkErrorViewVisibility")
+fun bindNetworkErrorView(view: ConstraintLayout, status: RankingApiStatus?) {
+    when (status) {
+        RankingApiStatus.ERROR -> {
+            view.visibility = VISIBLE
+        }
+        RankingApiStatus.DONE -> {
+            view.visibility = GONE
+        }
+    }
+}
+
+
+@BindingAdapter("rankingViewVisibility")
+fun bindRankingView(view: ConstraintLayout, status: RankingApiStatus?) {
+    when (status) {
+        RankingApiStatus.ERROR -> {
+            view.visibility = GONE
+        }
+        RankingApiStatus.DONE -> {
+            view.visibility = VISIBLE
+        }
+    }
 }
