@@ -18,8 +18,8 @@ fun bindWinOrLoseRunnerRecyclerView(view: RecyclerView, data: List<RankingRunner
     adapter.submitList(data)
 }
 
-@BindingAdapter("scoreOrDistance")
-fun bindScoreOrDistance(view: TextView, item: RankingRunner) {
+@BindingAdapter("rankerScoreOrDistance")
+fun bindRankerScoreOrDistance(view: TextView, item: RankingRunner) {
     view.text = when (item) {
         is RankingRunner.WinOrLoseRunner -> view.resources.getString(R.string.win_lose)
             .format(item.win, item.lose)
@@ -28,16 +28,16 @@ fun bindScoreOrDistance(view: TextView, item: RankingRunner) {
     }
 }
 
-@BindingAdapter("nickName")
-fun bindNickName(view: TextView, item: RankingRunner) {
+@BindingAdapter("rankerNickname")
+fun bindRankerNickName(view: TextView, item: RankingRunner) {
     view.text = when (item) {
         is RankingRunner.WinOrLoseRunner -> item.nickname
         is RankingRunner.HeavyRunner -> item.nickname
     }
 }
 
-@BindingAdapter("profileImage")
-fun bindProfileImage(view: ImageView, item: RankingRunner) {
+@BindingAdapter("rankerProfileImage")
+fun bindRankerProfileImage(view: ImageView, item: RankingRunner) {
     val itemImageIndex = when (item) {
         is RankingRunner.WinOrLoseRunner -> item.image
         is RankingRunner.HeavyRunner -> item.image
@@ -56,8 +56,8 @@ fun bindProfileImage(view: ImageView, item: RankingRunner) {
     view.useGlide(itemImage)
 }
 
-@BindingAdapter("networkErrorViewVisibility")
-fun bindNetworkErrorView(view: ConstraintLayout, status: RankingApiStatus?) {
+@BindingAdapter("rankingNetworkErrorViewVisibility")
+fun bindRankingNetworkErrorView(view: ConstraintLayout, status: RankingApiStatus?) {
     when (status) {
         RankingApiStatus.ERROR -> {
             view.visibility = VISIBLE
