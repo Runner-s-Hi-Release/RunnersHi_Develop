@@ -45,7 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:profileImage="@{rankingRunner}" />
+            app:rankerProfileImage="@{rankingRunner}" />
 
         <TextView
             android:id="@+id/tv_rank_nick_name"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/nanumsquareb"
-            app:nickName="@{rankingRunner}"
+            app:rankerNickname="@{rankingRunner}"
             android:textColor="#333333"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
             android:id="@+id/tv_rank_data"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="18dp"
-            app:scoreOrDistance="@{rankingRunner}"
+            app:rankerScoreOrDistance="@{rankingRunner}"
             android:fontFamily="@font/nanumsquarer"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
