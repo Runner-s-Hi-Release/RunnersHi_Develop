@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.runnershi_develop.BuildConfig
 import com.example.runnershi_develop.data.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 enum class RankingApiStatus { DONE, ERROR }
@@ -31,7 +30,7 @@ class RankingViewModel internal constructor(
         getRankingRunner()
     }
 
-    private fun getRankingRunner(){
+    fun getRankingRunner(){
         viewModelScope.launch {
             try {
                 _heavyRunners.value = rankingRepository.getHeavyRunner(BuildConfig.USER_ACCESS_KEY)
@@ -46,5 +45,4 @@ class RankingViewModel internal constructor(
             }
         }
     }
-
 }
