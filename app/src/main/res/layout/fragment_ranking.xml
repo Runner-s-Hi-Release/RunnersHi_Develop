@@ -73,7 +73,7 @@
                     app:rankingViewVisibility="@{viewModel.status}">
 
                     <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/g_left"
+                        android:id="@+id/guideline_left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -90,7 +90,7 @@
                         android:text="@string/ranking_heavy_runner_title"
                         android:textColor="@color/black"
                         android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="@id/g_left"
+                        app:layout_constraintStart_toStartOf="@id/guideline_left"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -103,7 +103,7 @@
                         android:text="@string/ranking_heavy_runner_desc"
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="@id/g_left"
+                        app:layout_constraintStart_toStartOf="@id/guideline_left"
                         app:layout_constraintTop_toBottomOf="@id/tv_ranking_heavy_runner_title" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -132,7 +132,7 @@
                         android:text="@string/ranking_winning_runner_title"
                         android:textColor="@color/black"
                         android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="@id/g_left"
+                        app:layout_constraintStart_toStartOf="@id/guideline_left"
                         app:layout_constraintTop_toBottomOf="@id/rv_ranking_heavy_runner" />
 
                     <TextView
@@ -145,7 +145,7 @@
                         android:text="@string/ranking_winning_runner_desc"
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="@id/g_left"
+                        app:layout_constraintStart_toStartOf="@id/guideline_left"
                         app:layout_constraintTop_toBottomOf="@id/tv_ranking_winning_runner" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -174,7 +174,7 @@
                         android:text="@string/ranking_losing_runner_title"
                         android:textColor="@color/black"
                         android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="@id/g_left"
+                        app:layout_constraintStart_toStartOf="@id/guideline_left"
                         app:layout_constraintTop_toBottomOf="@id/rv_ranking_winning_runner" />
 
                     <TextView
@@ -187,7 +187,7 @@
                         android:text="@string/ranking_losing_runner_desc"
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="@id/g_left"
+                        app:layout_constraintStart_toStartOf="@id/guideline_left"
                         app:layout_constraintTop_toBottomOf="@id/tv_ranking_losing_runner_title" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -205,12 +205,6 @@
                         app:layout_constraintTop_toBottomOf="@id/tv_ranking_losing_runner_desc"
                         app:rankingList="@{viewModel.losingRunners}" />
 
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintGuide_begin="20dp" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.core.widget.NestedScrollView>
