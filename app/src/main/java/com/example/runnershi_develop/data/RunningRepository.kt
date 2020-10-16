@@ -3,7 +3,7 @@ package com.example.runnershi_develop.data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.example.runnershi_develop.api.RequestToServer
+import com.example.runnershi_develop.api.RequestToServer.service
 import com.example.runnershi_develop.api.ResultWrapper.*
 import com.example.runnershi_develop.api.safeApiCall
 import kotlinx.coroutines.Dispatchers
@@ -19,9 +19,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
     suspend fun refreshRunnings(token: String) {
         val callResult = safeApiCall {
-            RequestToServer
-                .create()
-                .requestRunning(token)
+            service.requestRunning(token)
         }
 
         when (callResult) {
@@ -48,7 +46,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
     suspend fun getRunningDetail(token: String, runIdx: Int): NetworkRunningDetail? {
         val callResult = safeApiCall {
-            RequestToServer.create().requestRunningDetail(token, runIdx)
+            service.requestRunningDetail(token, runIdx)
         }
         when (callResult){
             is Success -> {
@@ -60,7 +58,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
     suspend fun getMyRunningDetail(token: String, runIdx: Int): NetworkMyRunningDetail? {
         val callResult = safeApiCall {
-            RequestToServer.create().requestMyRunningDetail(token, runIdx)
+            service.requestMyRunningDetail(token, runIdx)
         }
         when (callResult){
             is Success -> {
@@ -72,7 +70,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
     suspend fun getOpponentRunningDetail(token: String, gameIdx: Int): NetworkOpponentRunningDetail? {
         val callResult = safeApiCall {
-            RequestToServer.create().requestOpponentRunningDetail(token, gameIdx)
+            service.requestOpponentRunningDetail(token, gameIdx)
         }
         when (callResult){
             is Success -> {

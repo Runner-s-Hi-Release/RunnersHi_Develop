@@ -2,7 +2,7 @@ package com.example.runnershi_develop.data
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.example.runnershi_develop.api.RequestToServer.Companion.service
+import com.example.runnershi_develop.api.RequestToServer.service
 import com.example.runnershi_develop.api.ResultWrapper
 import com.example.runnershi_develop.api.safeApiCall
 import kotlinx.coroutines.Dispatchers

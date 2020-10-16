@@ -1,12 +1,14 @@
 package com.example.runnershi_develop.api
 
+import android.service.notification.NotificationListenerService
 import com.example.runnershi_develop.data.*
+import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
 
 interface RequestInterface {
-
     @GET("user/myprofile")
     suspend fun requestmyProfile(@Header("token") token : String): ResponseData<User>
 
@@ -25,4 +27,14 @@ interface RequestInterface {
 
     @GET("/record/opponent/{game_idx}")
     suspend fun requestOpponentRunningDetail(@Header("token") token :String, @Path("game_idx") game_idx :Int):ResponseData<NetworkOpponentRunningDetail>
+
+    @GET("ranking/runner")
+    suspend fun requestHeavyRunner(@Header("token") token :String): ResponseData<List<RankingRunner.HeavyRunner>>
+
+    @GET("ranking/winner")
+    suspend fun requestWinningRunner(@Header("token") token :String):ResponseData<List<RankingRunner.WinOrLoseRunner>>
+
+    @GET("ranking/loser")
+    suspend fun requestLosingRunner(@Header("token") token :String): ResponseData<List<RankingRunner.WinOrLoseRunner>>
+
 }
