@@ -25,6 +25,7 @@ class RecordFragment : Fragment() {
         val binding = FragmentRecordBinding.inflate(inflater, container, false)
             .apply {
                 lifecycleOwner = this@RecordFragment
+                viewModel = this@RecordFragment.viewModel
             }
 
         viewModelAdapter = RecordAdapter(RecordAdapter.OnClickListener{record ->
@@ -33,9 +34,6 @@ class RecordFragment : Fragment() {
 
         binding.recordList.adapter =viewModelAdapter
 
-        viewModel.runnings.observe(viewLifecycleOwner, Observer {
-            viewModelAdapter.submitList(it)
-        })
 
         viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer {record ->
             record?.let{
