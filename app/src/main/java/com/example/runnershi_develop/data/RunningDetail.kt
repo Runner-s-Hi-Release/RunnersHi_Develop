@@ -51,7 +51,7 @@ data class OpponentRunningDetail(
     val paceSecond: Int
 )
 
-@Entity
+
 data class DataBaseRunningDetail(
     @ColumnInfo(name = "run_idx")
     val runIdx: Int,
