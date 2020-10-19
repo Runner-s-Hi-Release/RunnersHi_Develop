@@ -11,8 +11,8 @@ import com.example.runnershi_develop.R
 import com.example.runnershi_develop.data.OpponentRunningDetail
 import com.example.runnershi_develop.data.Running
 
-@BindingAdapter("backgroundImage")
-fun bindBackground(imageView: ImageView, result: Int) {
+@BindingAdapter("winOrLoseBackgroundImage")
+fun bindWinOrLoseBackground(imageView: ImageView, result: Int) {
     if (result == 1) {
         Glide.with(imageView.context)
             .load(R.drawable.blueline___recbadgefragment_winnerrecord)
