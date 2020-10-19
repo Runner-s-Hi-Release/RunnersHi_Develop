@@ -30,27 +30,46 @@ fun NetworkRunningDetail.asRunningDetail(): RunningDetail{
 }
 
 data class MyRunningDetail(
-    @SerializedName("pace_minute")
     @ColumnInfo(name = "pace_minute")
     val paceMinute: Int,
-    @SerializedName("pace_second")
     @ColumnInfo(name = "pace_second")
     val paceSecond: Int
 )
 
+data class NetworkMyRunningDetail(
+    @SerializedName("pace_minute")
+    val paceMinute: Int,
+    @SerializedName("pace_second")
+    val paceSecond: Int
+)
+
+fun NetworkMyRunningDetail.asMyRunningDetail(): MyRunningDetail{
+    return MyRunningDetail(this.paceMinute, this.paceSecond)
+}
+
 data class OpponentRunningDetail(
+    val nickname: String,
+    val distance: Int,
+    @ColumnInfo(name = "pace_minute")
+    val paceMinute: Int,
+    @ColumnInfo(name = "pace_second")
+    val paceSecond: Int
+)
+
+data class NetworkOpponentRunningDetail(
     @SerializedName("nickname")
     val nickname: String,
     @SerializedName("distance")
     val distance: Int,
     @SerializedName("pace_minute")
-    @ColumnInfo(name = "pace_minute")
     val paceMinute: Int,
     @SerializedName("pace_second")
-    @ColumnInfo(name = "pace_second")
     val paceSecond: Int
 )
 
+fun NetworkOpponentRunningDetail.asOpponentRunningDetail(): OpponentRunningDetail{
+    return OpponentRunningDetail(this.nickname, this.distance, this.paceMinute, this.paceSecond)
+}
 
 data class DataBaseRunningDetail(
     @ColumnInfo(name = "run_idx")

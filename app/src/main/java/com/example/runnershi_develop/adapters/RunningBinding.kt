@@ -24,8 +24,8 @@ fun bindWinOrLoseBackground(imageView: ImageView, result: Int) {
     }
 }
 
-@BindingAdapter("backgroundLayout")
-fun bindBackgroundLayout(layout: ConstraintLayout, result: Int) {
+@BindingAdapter("runningResultLayout")
+fun bindRunningResultLayout(layout: ConstraintLayout, result: Int) {
     if (result == 1) {
         layout.setBackgroundResource(R.drawable.bluebox_recdetailactivity)
     } else {
@@ -51,7 +51,7 @@ fun bindDistance(textView: TextView, meter: Int?) {
 @BindingAdapter("time")
 fun bindTime(textView: TextView, time: String?) {
     time?.let{
-        with(time.split(":")) {
+        with(it.split(":")) {
             textView.text = if (this[0] == "00") {
                 "${this[1]}:${this[2]}"
             } else {

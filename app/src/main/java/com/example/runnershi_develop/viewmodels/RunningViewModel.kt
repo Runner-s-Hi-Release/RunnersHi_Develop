@@ -6,7 +6,7 @@ import com.example.runnershi_develop.data.Running
 import com.example.runnershi_develop.data.RunningRepository
 import kotlinx.coroutines.launch
 
-class RecordViewModel(
+class RunningViewModel(
     private val runningRepository: RunningRepository)
     : ViewModel() {
     val runnings = runningRepository.runnings

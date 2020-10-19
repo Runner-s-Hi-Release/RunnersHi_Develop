@@ -11,7 +11,7 @@
 
         <variable
             name="clickListener"
-            type="com.example.runnershi_develop.adapters.RecordAdapter.OnClickListener" />
+            type="com.example.runnershi_develop.adapters.RunningAdapter.OnClickListener" />
     </data>
 
 

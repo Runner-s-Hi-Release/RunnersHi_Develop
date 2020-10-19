@@ -180,6 +180,7 @@
                 app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
                 app:spanCount="3"
+                app:badgeList="@{viewModel.user.badges}"
                 tools:listitem="@layout/list_item_badge"/>
 
             <Button
