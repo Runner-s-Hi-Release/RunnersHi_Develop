@@ -5,9 +5,11 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.runnershi_develop.R
 import com.example.runnershi_develop.data.OpponentRunningDetail
+import com.example.runnershi_develop.data.Running
 
 @BindingAdapter("backgroundImage")
 fun bindBackground(imageView: ImageView, result: Int) {
@@ -56,6 +58,14 @@ fun bindTime(textView: TextView, time: String?) {
                 "${this[0][1]}:${this[1]}:${this[2]}"
             }
         }
+    }
+}
+
+@BindingAdapter("listData")
+fun bindListData(recyclerView: RecyclerView, runnings: List<Running>?){
+    runnings?.let{
+        val adapter = recyclerView.adapter as RecordAdapter
+        adapter.submitList(runnings)
     }
 }
 
