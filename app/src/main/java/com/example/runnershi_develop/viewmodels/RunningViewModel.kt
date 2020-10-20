@@ -7,20 +7,20 @@ import com.example.runnershi_develop.data.RunningRepository
 import kotlinx.coroutines.launch
 
 class RunningViewModel(
-    private val runningRepository: RunningRepository)
-    : ViewModel() {
+    private val runningRepository: RunningRepository
+) : ViewModel() {
     val runnings = runningRepository.runnings
 
     private val _navigateToDetail = MutableLiveData<Running>()
     val navigateToDetail: LiveData<Running>
         get() = _navigateToDetail
 
-    init{
+    init {
         refreshDataFromRepository()
     }
 
-    fun refreshDataFromRepository(){
-        viewModelScope.launch{
+    fun refreshDataFromRepository() {
+        viewModelScope.launch {
             runningRepository.refreshRunnings(BuildConfig.USER_ACCESS_KEY)
         }
     }

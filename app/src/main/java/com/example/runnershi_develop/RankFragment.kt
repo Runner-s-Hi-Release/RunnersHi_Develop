@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import com.example.runnershi_develop.databinding.FragmentRankBinding
 
 class RankFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding = FragmentRankBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 }

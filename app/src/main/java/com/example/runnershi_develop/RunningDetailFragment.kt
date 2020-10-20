@@ -20,31 +20,37 @@ class RunningDetailFragment : Fragment() {
 
     private val args: RunningDetailFragmentArgs by navArgs()
     private val runningDetailViewModel: RunningDetailViewModel by viewModels {
-        InjectorUtils.provideRunningDetailViewModelFactory(requireActivity(), args.running.runIdx, args.running.gameIdx)
+        InjectorUtils.provideRunningDetailViewModelFactory(
+            requireActivity(),
+            args.running.runIdx,
+            args.running.gameIdx
+        )
     }
     private val naverMapFragment = NaverMapFragment()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
 
         val binding = DataBindingUtil.inflate<FragmentRunningDetailBinding>(
             inflater, R.layout.fragment_running_detail, container, false
-        ).apply{
+        ).apply {
             viewModel = runningDetailViewModel
             lifecycleOwner = viewLifecycleOwner
 
             runningDetailViewModel.coordinates?.observe(viewLifecycleOwner, Observer {
-                it?.let{
+                it?.let {
                     naverMapFragment.updateCoordinates(it)
                 }
             })
 
-            btnRecDetailBack.setOnClickListener{view ->
+            btnRecDetailBack.setOnClickListener { view ->
                 view.findNavController().navigateUp()
             }
         }
 
-        childFragmentManager.beginTransaction().add(R.id.naver_map_layout, naverMapFragment, "TAG_CHILD").commit()
+        childFragmentManager.beginTransaction()
+            .add(R.id.naver_map_layout, naverMapFragment, "TAG_CHILD").commit()
 
         return binding.root
     }

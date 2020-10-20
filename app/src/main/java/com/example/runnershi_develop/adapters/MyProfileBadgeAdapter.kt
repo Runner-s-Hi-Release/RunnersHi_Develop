@@ -11,9 +11,10 @@ import com.example.runnershi_develop.data.Badge
 import com.example.runnershi_develop.databinding.ListItemBadgeBinding
 import com.example.runnershi_develop.utilities.OnClickListener
 
-class MyProfileBadgeAdapter(private val onClick: (badge: Badge?)-> Unit): ListAdapter<Boolean, BadgeViewHolder>(
-    BadgeDiffCallback()
-) {
+class MyProfileBadgeAdapter(private val onClick: (badge: Badge?) -> Unit) :
+    ListAdapter<Boolean, BadgeViewHolder>(
+        BadgeDiffCallback()
+    ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BadgeViewHolder {
         return BadgeViewHolder(
             DataBindingUtil.inflate(
@@ -28,7 +29,10 @@ class MyProfileBadgeAdapter(private val onClick: (badge: Badge?)-> Unit): ListAd
     }
 }
 
-class BadgeViewHolder(private val binding: ListItemBadgeBinding, private val onClick: (badge: Badge?)-> Unit) : RecyclerView.ViewHolder(binding.root) {
+class BadgeViewHolder(
+    private val binding: ListItemBadgeBinding,
+    private val onClick: (badge: Badge?) -> Unit
+) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(badgeBool: Boolean, index: Int) {
         with(binding) {

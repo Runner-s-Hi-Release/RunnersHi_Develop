@@ -14,9 +14,9 @@ class MyProfileViewModel internal constructor(
 
     private val _badge = MutableLiveData<Badge>()
     val navigateToBadgeDetail: LiveData<Badge>
-        get() =_badge
+        get() = _badge
 
-    init{
+    init {
         createUser()
     }
 
@@ -26,19 +26,17 @@ class MyProfileViewModel internal constructor(
         }
     }
 
-    fun deleteUser(){
+    fun deleteUser() {
         viewModelScope.launch {
-            user.value?.let{userRepository.removeUser(user.value!!)}
+            user.value?.let { userRepository.removeUser(user.value!!) }
         }
     }
 
-    fun displayBadgeDetail(badge: Badge?){
+    fun displayBadgeDetail(badge: Badge?) {
         _badge.value = badge
     }
 
-    fun displayBadgeDetailDone(){
+    fun displayBadgeDetailDone() {
         _badge.value = null
     }
-
-
 }

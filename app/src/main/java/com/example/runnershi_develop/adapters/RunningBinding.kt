@@ -42,7 +42,7 @@ fun bindDate(textView: TextView, date: String) {
 
 @BindingAdapter("distance")
 fun bindDistance(textView: TextView, meter: Int?) {
-    meter?.let{
+    meter?.let {
         val km = meter / 1000.0
         textView.text = String.format("%.2f", km)
     }
@@ -50,7 +50,7 @@ fun bindDistance(textView: TextView, meter: Int?) {
 
 @BindingAdapter("time")
 fun bindTime(textView: TextView, time: String?) {
-    time?.let{
+    time?.let {
         with(it.split(":")) {
             textView.text = if (this[0] == "00") {
                 "${this[1]}:${this[2]}"
@@ -70,6 +70,6 @@ fun bindListData(recyclerView: RecyclerView, runnings: List<Running>?) {
 }
 
 @BindingAdapter("opponentIsVisible")
-fun bindVisible(layout: ConstraintLayout, opponentRunningDetail: OpponentRunningDetail?){
+fun bindVisible(layout: ConstraintLayout, opponentRunningDetail: OpponentRunningDetail?) {
     layout.isVisible = opponentRunningDetail != null
 }

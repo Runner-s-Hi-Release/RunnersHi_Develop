@@ -9,11 +9,11 @@ import java.lang.IllegalArgumentException
 class RunningDetailViewModelFactory(
     private val runningRepository: RunningRepository,
     private val runIdx: Int,
-    private val gameIdx: Int)
-    : ViewModelProvider.Factory{
+    private val gameIdx: Int
+) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(RunningDetailViewModel::class.java)){
+        if (modelClass.isAssignableFrom(RunningDetailViewModel::class.java)) {
             return RunningDetailViewModel(runningRepository, runIdx, gameIdx) as T
         }
         throw IllegalArgumentException("Unable to construct viewmodel")

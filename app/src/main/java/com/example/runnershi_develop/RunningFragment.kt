@@ -20,23 +20,25 @@ class RunningFragment : Fragment() {
         InjectorUtils.provideRecordViewModelFactory(requireActivity())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding = FragmentRunningBinding.inflate(inflater, container, false)
             .apply {
                 lifecycleOwner = this@RunningFragment
-                viewModel = this@RecordFragment.viewModel
+                viewModel = this@RunningFragment.viewModel
             }
 
-        viewModelAdapter = RunningAdapter(RunningAdapter.OnClickListener{ record ->
+        viewModelAdapter = RunningAdapter(RunningAdapter.OnClickListener { record ->
             viewModel.displayRecordDetail(record)
         })
 
-        binding.recordList.adapter =viewModelAdapter
+        binding.recordList.adapter = viewModelAdapter
 
 
-        viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer {record ->
-            record?.let{
+        viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer { record ->
+            record?.let {
                 this.findNavController().navigate(
                     HomeViewPagerFragmentDirections
                         .actionHomeViewPagerFragmentToRunningDetailFragment(record)

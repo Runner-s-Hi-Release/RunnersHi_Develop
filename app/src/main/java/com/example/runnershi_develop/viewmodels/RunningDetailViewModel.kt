@@ -12,22 +12,28 @@ class RunningDetailViewModel(
     private val runningRepository: RunningRepository,
     private val runIdx: Int,
     private val gameIdx: Int
-)
-    : ViewModel() {
+) : ViewModel() {
     val running = runningRepository.getRunning(runIdx)
     private val _coordinates = MutableLiveData<ArrayList<Coordinate>>()
     val coordinates: LiveData<ArrayList<Coordinate>>?
         get() = _coordinates
 
 
-    init{
+    init {
         viewModelScope.launch {
-            val runningDetail = runningRepository.getRunningDetail(BuildConfig.USER_ACCESS_KEY, runIdx)
+            val runningDetail =
+                runningRepository.getRunningDetail(BuildConfig.USER_ACCESS_KEY, runIdx)
             _coordinates.value = runningDetail?.coordinates
-            val myRunningDetail = runningRepository.getMyRunningDetail(BuildConfig.USER_ACCESS_KEY, runIdx)
-            val opponentRunningDetail = runningRepository.getOpponentRunningDetail(BuildConfig.USER_ACCESS_KEY, gameIdx)
-            runningRepository.updateRunningDetail(runIdx, runningDetail?.asRunningDetail(),
-                myRunningDetail?.asMyRunningDetail(), opponentRunningDetail?.asOpponentRunningDetail())
+            val myRunningDetail =
+                runningRepository.getMyRunningDetail(BuildConfig.USER_ACCESS_KEY, runIdx)
+            val opponentRunningDetail =
+                runningRepository.getOpponentRunningDetail(BuildConfig.USER_ACCESS_KEY, gameIdx)
+            runningRepository.updateRunningDetail(
+                runIdx,
+                runningDetail?.asRunningDetail(),
+                myRunningDetail?.asMyRunningDetail(),
+                opponentRunningDetail?.asOpponentRunningDetail()
+            )
         }
     }
 }

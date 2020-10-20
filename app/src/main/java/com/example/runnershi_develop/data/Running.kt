@@ -11,4 +11,4 @@ data class Running(
     val runIdx: Int,
     val gameIdx: Int,
     val result: Int
-): Parcelable
+) : Parcelable

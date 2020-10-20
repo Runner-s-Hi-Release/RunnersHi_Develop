@@ -3,23 +3,22 @@ package com.example.runnershi_develop.data
 import com.google.gson.annotations.SerializedName
 
 
-
-data class NetworkRunning (
+data class NetworkRunning(
     @SerializedName("date")
-    val date : String,
+    val date: String,
     @SerializedName("distance")
-    val distance : Int,
+    val distance: Int,
     @SerializedName("time")
-    val time : String,
+    val time: String,
     @SerializedName("run_idx")
-    val runIdx : Int,
+    val runIdx: Int,
     @SerializedName("result")
-    val result : Int,
+    val result: Int,
     @SerializedName("game_idx")
-    val gameIdx : Int
+    val gameIdx: Int
 )
 
-fun List<NetworkRunning>.asDatabaseModel(): List<DatabaseRunning>{
+fun List<NetworkRunning>.asDatabaseModel(): List<DatabaseRunning> {
     return this.map {
         DatabaseRunning(
             runIdx = it.runIdx,
