@@ -6,21 +6,17 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.runnershi_develop.R
 import com.example.runnershi_develop.data.OpponentRunningDetail
 import com.example.runnershi_develop.data.Running
+import com.example.runnershi_develop.extension.useGlide
 
 @BindingAdapter("winOrLoseBackgroundImage")
 fun bindWinOrLoseBackground(imageView: ImageView, result: Int) {
     if (result == 1) {
-        Glide.with(imageView.context)
-            .load(R.drawable.blueline___recbadgefragment_winnerrecord)
-            .into(imageView)
+        imageView.useGlide(R.drawable.blueline___recbadgefragment_winnerrecord)
     } else {
-        Glide.with(imageView.context)
-            .load(R.drawable.grayline___recbadgefragment_winnerrecord)
-            .into(imageView)
+        imageView.useGlide(R.drawable.grayline___recbadgefragment_winnerrecord)
     }
 }
 
