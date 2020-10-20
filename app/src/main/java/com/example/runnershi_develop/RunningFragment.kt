@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.runnershi_develop.adapters.RunningAdapter
 import com.example.runnershi_develop.databinding.FragmentRunningBinding
 import com.example.runnershi_develop.utilities.InjectorUtils
+import com.example.runnershi_develop.utilities.OnClickListener
 import com.example.runnershi_develop.viewmodels.RunningViewModel
 
 class RunningFragment : Fragment() {
@@ -30,7 +31,7 @@ class RunningFragment : Fragment() {
                 viewModel = this@RunningFragment.viewModel
             }
 
-        viewModelAdapter = RunningAdapter(RunningAdapter.OnClickListener { record ->
+        viewModelAdapter = RunningAdapter(OnClickListener { record ->
             viewModel.displayRecordDetail(record)
         })
 
