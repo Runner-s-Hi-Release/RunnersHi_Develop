@@ -62,9 +62,9 @@ fun bindTime(textView: TextView, time: String?) {
 }
 
 @BindingAdapter("listData")
-fun bindListData(recyclerView: RecyclerView, runnings: List<Running>?){
-    runnings?.let{
-        val adapter = recyclerView.adapter as RecordAdapter
+fun bindListData(recyclerView: RecyclerView, runnings: List<Running>?) {
+    runnings?.let {
+        val adapter = recyclerView.adapter as RunningAdapter
         adapter.submitList(runnings)
     }
 }
