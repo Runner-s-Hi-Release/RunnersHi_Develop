@@ -19,7 +19,7 @@ class RaceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.race_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_race, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
