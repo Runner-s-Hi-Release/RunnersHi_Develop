@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="75dp">
+
+            <ImageView
+                android:id="@+id/btn_run_lock"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/icon_unlock"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/winner_ranking_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/runactivity_whitebox_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_run_lock">
+
+
+                <ImageView
+                    android:id="@+id/imgv_winner_raking"
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginStart="26dp"
+                    android:src="@drawable/icon_run_win"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imgv_winner_profile"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgv_winner_profile"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/icon_redman_shorthair"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_winner_nickname"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_winner_raking"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_winner_nickname"
+                    style="@style/TextStyle10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="34dp"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="1등이닷"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_winner_level_title"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_winner_profile"
+                    app:layout_constraintTop_toTopOf="@id/winner_ranking_profile" />
+
+                <TextView
+                    android:id="@+id/tv_winner_level_title"
+                    style="@style/TextStyle11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="8dp"
+                    android:text="Lv."
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_winner_level"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_winner_score_title"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_winner_nickname"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tv_winner_level"
+                    style="@style/TextStyle4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="초급"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_winner_level_title"
+                    app:layout_constraintStart_toStartOf="@id/tv_winner_level_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_winner_level_title" />
+
+                <TextView
+                    android:id="@+id/tv_winner_score"
+                    style="@style/TextStyle4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="11승 5패"
+                    android:textFontWeight="400"
+                    app:layout_constraintBottom_toBottomOf="@+id/winner_ranking_profile"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_winner_score_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_winner_score_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_winner_score_title" />
+
+                <TextView
+                    android:id="@+id/tv_winner_score_title"
+                    style="@style/TextStyle11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="전적"
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_winner_score"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_winner_level_title"
+                    app:layout_constraintTop_toTopOf="@id/winner_ranking_profile"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/loser_ranking_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/runactivity_whitebox_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/winner_ranking_profile">
+
+
+                <ImageView
+                    android:id="@+id/imgv_loser_raking"
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginStart="26dp"
+                    android:src="@drawable/icon_run_lose"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imgv_loser_profile"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgv_loser_profile"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/icon_bluewomen_permhair"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_loser_nickname"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_loser_raking"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_loser_nickname"
+                    style="@style/TextStyle10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="34dp"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="1등이닷"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_loser_level_title"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_loser_profile"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_loser_level_title"
+                    style="@style/TextStyle11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="8dp"
+                    android:text="Lv."
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_loser_level"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_loser_score_title"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_loser_nickname"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tv_loser_level"
+                    style="@style/TextStyle4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="초급"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_loser_level_title"
+                    app:layout_constraintStart_toStartOf="@id/tv_loser_level_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_loser_level_title" />
+
+                <TextView
+                    android:id="@+id/tv_loser_score"
+                    style="@style/TextStyle4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="11승 5패"
+                    android:textFontWeight="400"
+                    app:layout_constraintBottom_toBottomOf="@+id/loser_ranking_profile"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_loser_score_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_loser_score_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_loser_score_title" />
+
+                <TextView
+                    android:id="@+id/tv_loser_score_title"
+                    style="@style/TextStyle11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="전적"
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_loser_score"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_loser_level_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_run_start"
+                style="@style/TextStyle4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ff_nanumsqare"
+                android:text="00:00"
+                android:textFontWeight="400"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toTopOf="@id/tv_run_end" />
+
+            <ProgressBar
+                android:id="@+id/progress_run"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="horizontal"
+                android:progressDrawable="@drawable/progressbar_run"
+                app:layout_constraintBottom_toBottomOf="@id/tv_run_end"
+                app:layout_constraintEnd_toStartOf="@id/tv_run_end"
+                app:layout_constraintStart_toEndOf="@id/tv_run_start"
+                app:layout_constraintTop_toTopOf="@id/tv_run_end" />
+
+            <TextView
+                android:id="@+id/tv_run_end"
+                style="@style/TextStyle4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/ff_nanumsqare"
+                android:text="--:--"
+                android:textFontWeight="400"
+                app:layout_constraintEnd_toEndOf="@id/guideline_right"
+                app:layout_constraintTop_toBottomOf="@id/loser_ranking_profile" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ly_run_rec"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:background="@drawable/custom_salmon_12"
+                android:elevation="12dp"
+                android:paddingStart="30dp"
+                android:paddingBottom="24dp"
+                app:layout_constraintEnd_toEndOf="@id/tv_run_end"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/tv_run_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_run_start">
+
+                <TextView
+                    android:id="@+id/tv_run_dist_title"
+                    style="@style/TextStyle5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="킬로미터 "
+                    android:textFontWeight="400"
+                    app:layout_constraintStart_toStartOf="@id/ly_run_rec"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_run_dist_data"
+                    style="@style/TextStyle6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="0.00"
+                    android:textFontWeight="400"
+                    app:layout_constraintStart_toStartOf="@id/tv_run_dist_title"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_run_time_title"
+                    style="@style/TextStyle5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="남은시간"
+                    android:textFontWeight="400"
+                    app:layout_constraintStart_toStartOf="@id/tv_run_dist_data"
+                    app:layout_constraintTop_toBottomOf="@id/tv_run_dist_data" />
+
+
+                <TextView
+                    android:id="@+id/tv_run_time_data"
+                    style="@style/TextStyle6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:textFontWeight="100"
+                    app:layout_constraintStart_toStartOf="@id/tv_run_time_title"
+                    app:layout_constraintTop_toBottomOf="@id/tv_run_dist_data"
+                    tools:text="30:00" />
+
+                <TextView
+                    android:id="@+id/tv_run_pace_title"
+                    style="@style/TextStyle5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/ff_nanumsqare"
+                    android:text="페이스"
+                    android:textFontWeight="400"
+                    app:layout_constraintStart_toStartOf="@id/tv_run_time_data"
+                    app:layout_constraintTop_toBottomOf="@id/tv_run_time_data" />
+
+                <TextView
+                    android:id="@+id/tv_run_pace_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_extrabolditalic"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="12sp"
+                    android:text="00&apos;00&quot;"
+                    android:textColor="@color/black"
+                    android:textFontWeight="400"
+                    android:textSize="35sp"
+                    app:layout_constraintStart_toStartOf="@id/tv_run_pace_title"
+                    app:layout_constraintTop_toBottomOf="@id/tv_run_pace_title" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_run_audio"
+                style="@style/TextStyle7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:text="음성 피드백"
+                app:layout_constraintStart_toStartOf="@+id/ly_run_rec"
+                app:layout_constraintTop_toBottomOf="@id/ly_run_rec" />
+
+            <TextView
+                android:id="@+id/btn_run_audio_on"
+                style="@style/TextStyle8"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/custom_brownish_grey_8"
+                android:gravity="center"
+                android:text="OFF"
+                app:layout_constraintEnd_toEndOf="@+id/ly_run_rec"
+                app:layout_constraintTop_toBottomOf="@+id/ly_run_rec" />
+
+            <TextView
+                android:id="@+id/btn_run_audio_off"
+                style="@style/TextStyle8"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/custom_lightish_blue_8"
+                android:gravity="center"
+                android:text="ON"
+                app:layout_constraintEnd_toStartOf="@id/btn_run_audio_on"
+                app:layout_constraintTop_toTopOf="@id/btn_run_audio_on" />
+
+            <TextView
+                android:id="@+id/btn_run_stop"
+                android:layout_width="0dp"
+                android:layout_height="47dp"
+                android:layout_marginHorizontal="53dp"
+                android:layout_marginTop="56dp"
+                android:background="@drawable/custom_brownish_grey_8"
+                android:fontFamily="@font/nanumsquareb"
+                android:gravity="center"
+                android:lineSpacingExtra="2sp"
+                android:text="러닝 경쟁 중단하기"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_run_audio_on" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="18dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="18dp" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
