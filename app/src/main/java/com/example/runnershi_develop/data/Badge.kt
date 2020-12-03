@@ -7,4 +7,4 @@ import kotlinx.android.parcel.Parcelize
 data class Badge(
     val badge: Boolean,
     val index: Int
-): Parcelable
+) : Parcelable

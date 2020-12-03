@@ -25,7 +25,7 @@ data class NetworkRunningDetail(
     val coordinates: ArrayList<Coordinate>
 )
 
-fun NetworkRunningDetail.asRunningDetail(): RunningDetail{
+fun NetworkRunningDetail.asRunningDetail(): RunningDetail {
     return RunningDetail(this.month, this.day, this.startTime, this.endTime)
 }
 
@@ -43,7 +43,7 @@ data class NetworkMyRunningDetail(
     val paceSecond: Int
 )
 
-fun NetworkMyRunningDetail.asMyRunningDetail(): MyRunningDetail{
+fun NetworkMyRunningDetail.asMyRunningDetail(): MyRunningDetail {
     return MyRunningDetail(this.paceMinute, this.paceSecond)
 }
 
@@ -67,7 +67,7 @@ data class NetworkOpponentRunningDetail(
     val paceSecond: Int
 )
 
-fun NetworkOpponentRunningDetail.asOpponentRunningDetail(): OpponentRunningDetail{
+fun NetworkOpponentRunningDetail.asOpponentRunningDetail(): OpponentRunningDetail {
     return OpponentRunningDetail(this.nickname, this.distance, this.paceMinute, this.paceSecond)
 }
 

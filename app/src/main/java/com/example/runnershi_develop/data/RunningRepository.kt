@@ -3,7 +3,7 @@ package com.example.runnershi_develop.data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.example.runnershi_develop.api.RequestToServer.service
+import com.example.runnershi_develop.api.RequestToServer
 import com.example.runnershi_develop.api.ResultWrapper.*
 import com.example.runnershi_develop.api.safeApiCall
 import kotlinx.coroutines.Dispatchers
@@ -19,13 +19,15 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
     suspend fun refreshRunnings(token: String) {
         val callResult = safeApiCall {
-            service.requestRunning(token)
+            RequestToServer
+                .service
+                .requestRunning(token)
         }
 
         when (callResult) {
             is Success -> {
                 val responseData = callResult.value.result
-                withContext(Dispatchers.IO){
+                withContext(Dispatchers.IO) {
                     runningDao.insertRunning(responseData.asDatabaseModel())
                 }
             }
@@ -46,9 +48,9 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
     suspend fun getRunningDetail(token: String, runIdx: Int): NetworkRunningDetail? {
         val callResult = safeApiCall {
-            service.requestRunningDetail(token, runIdx)
+            RequestToServer.service.requestRunningDetail(token, runIdx)
         }
-        when (callResult){
+        when (callResult) {
             is Success -> {
                 return callResult.value.result
             }
@@ -58,9 +60,9 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
     suspend fun getMyRunningDetail(token: String, runIdx: Int): NetworkMyRunningDetail? {
         val callResult = safeApiCall {
-            service.requestMyRunningDetail(token, runIdx)
+            RequestToServer.service.requestMyRunningDetail(token, runIdx)
         }
-        when (callResult){
+        when (callResult) {
             is Success -> {
                 return callResult.value.result
             }
@@ -68,11 +70,14 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         return null
     }
 
-    suspend fun getOpponentRunningDetail(token: String, gameIdx: Int): NetworkOpponentRunningDetail? {
+    suspend fun getOpponentRunningDetail(
+        token: String,
+        gameIdx: Int
+    ): NetworkOpponentRunningDetail? {
         val callResult = safeApiCall {
-            service.requestOpponentRunningDetail(token, gameIdx)
+            RequestToServer.service.requestOpponentRunningDetail(token, gameIdx)
         }
-        when (callResult){
+        when (callResult) {
             is Success -> {
                 return callResult.value.result
             }
@@ -80,9 +85,11 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         return null
     }
 
-    suspend fun updateRunningDetail(runIdx: Int, runningDetail: RunningDetail?, myRunningDetail: MyRunningDetail?,
-                                    opponentRunningDetail: OpponentRunningDetail?){
-        if(runningDetail != null && myRunningDetail != null)
+    suspend fun updateRunningDetail(
+        runIdx: Int, runningDetail: RunningDetail?, myRunningDetail: MyRunningDetail?,
+        opponentRunningDetail: OpponentRunningDetail?
+    ) {
+        if (runningDetail != null && myRunningDetail != null)
             runningDao.updateRunning(
                 DataBaseRunningDetail(
                     runIdx = runIdx,

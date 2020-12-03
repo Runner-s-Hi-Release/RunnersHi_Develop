@@ -5,20 +5,18 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.RecyclerView
 import com.example.runnershi_develop.R
 import com.example.runnershi_develop.data.OpponentRunningDetail
+import com.example.runnershi_develop.data.Running
+import com.example.runnershi_develop.extension.useGlide
 
-@BindingAdapter("backgroundImage")
-fun bindBackground(imageView: ImageView, result: Int) {
+@BindingAdapter("winOrLoseBackgroundImage")
+fun bindWinOrLoseBackground(imageView: ImageView, result: Int) {
     if (result == 1) {
-        Glide.with(imageView.context)
-            .load(R.drawable.blueline___recbadgefragment_winnerrecord)
-            .into(imageView)
+        imageView.useGlide(R.drawable.blueline___recbadgefragment_winnerrecord)
     } else {
-        Glide.with(imageView.context)
-            .load(R.drawable.grayline___recbadgefragment_winnerrecord)
-            .into(imageView)
+        imageView.useGlide(R.drawable.grayline___recbadgefragment_winnerrecord)
     }
 }
 
@@ -40,7 +38,7 @@ fun bindDate(textView: TextView, date: String) {
 
 @BindingAdapter("distance")
 fun bindDistance(textView: TextView, meter: Int?) {
-    meter?.let{
+    meter?.let {
         val km = meter / 1000.0
         textView.text = String.format("%.2f", km)
     }
@@ -48,7 +46,7 @@ fun bindDistance(textView: TextView, meter: Int?) {
 
 @BindingAdapter("time")
 fun bindTime(textView: TextView, time: String?) {
-    time?.let{
+    time?.let {
         with(it.split(":")) {
             textView.text = if (this[0] == "00") {
                 "${this[1]}:${this[2]}"
@@ -59,7 +57,15 @@ fun bindTime(textView: TextView, time: String?) {
     }
 }
 
+@BindingAdapter("listData")
+fun bindListData(recyclerView: RecyclerView, runnings: List<Running>?) {
+    runnings?.let {
+        val adapter = recyclerView.adapter as RunningAdapter
+        adapter.submitList(runnings)
+    }
+}
+
 @BindingAdapter("opponentIsVisible")
-fun bindVisible(layout: ConstraintLayout, opponentRunningDetail: OpponentRunningDetail?){
+fun bindVisible(layout: ConstraintLayout, opponentRunningDetail: OpponentRunningDetail?) {
     layout.isVisible = opponentRunningDetail != null
 }

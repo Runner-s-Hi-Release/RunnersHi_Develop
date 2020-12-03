@@ -11,7 +11,7 @@
 
         <variable
             name="clickListener"
-            type="com.example.runnershi_develop.adapters.RunningAdapter.OnClickListener" />
+            type="com.example.runnershi_develop.utilities.OnClickListener" />
     </data>
 
 
@@ -34,13 +34,12 @@
                 android:id="@+id/imgv_background"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
-
-                app:backgroundImage="@{running.result}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/blueline___recbadgefragment_winnerrecord" />
+                app:srcCompat="@drawable/blueline___recbadgefragment_winnerrecord"
+                app:winOrLoseBackgroundImage="@{running.result}" />
 
 
             <TextView
@@ -79,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumsquarer"
                 android:lineSpacingExtra="8sp"
-                android:text="킬로미터"
+                android:text="@string/kilometer"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_rec_distacne"
@@ -107,7 +106,7 @@
                 android:fontFamily="@font/nanumsquarer"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="8sp"
-                android:text="러닝시간"
+                android:text="@string/running_time"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_rec_time_title"

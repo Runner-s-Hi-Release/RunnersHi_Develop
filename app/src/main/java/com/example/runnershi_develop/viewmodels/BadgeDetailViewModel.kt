@@ -14,13 +14,14 @@ class BadgeDetailViewModel internal constructor(
     val badgeDetail: LiveData<BadgeDetail?>
         get() = _badgeDetail
 
-    init{
+    init {
         getBadgeDetail()
     }
 
-    private fun getBadgeDetail(){
-        viewModelScope.launch{
-            _badgeDetail.value = badgeDetailRepository.getBadgeDetail(BuildConfig.USER_ACCESS_KEY, index)
+    private fun getBadgeDetail() {
+        viewModelScope.launch {
+            _badgeDetail.value =
+                badgeDetailRepository.getBadgeDetail(BuildConfig.USER_ACCESS_KEY, index)
         }
     }
 }

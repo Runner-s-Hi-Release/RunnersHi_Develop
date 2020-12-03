@@ -1,6 +1,5 @@
 package com.example.runnershi_develop.adapters
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,9 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.runnershi_develop.data.Running
 import com.example.runnershi_develop.databinding.ListItemRecordBinding
+import com.example.runnershi_develop.utilities.OnClickListener
 
-
-class RunningAdapter(private val onClickListener: OnClickListener) :
+class RunningAdapter(private val onClickListener: OnClickListener<Running>) :
     ListAdapter<Running, RunningAdapter.ViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ListItemRecordBinding.inflate(
@@ -32,7 +31,7 @@ class RunningAdapter(private val onClickListener: OnClickListener) :
 
     class ViewHolder(
         private var binding: ListItemRecordBinding,
-        private val onClickListener: OnClickListener
+        private val onClickListener: OnClickListener<Running>
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -52,9 +51,5 @@ class RunningAdapter(private val onClickListener: OnClickListener) :
             return (oldItem.runIdx == newItem.runIdx
                     && oldItem.gameIdx == newItem.gameIdx)
         }
-    }
-
-    class OnClickListener(val clickListener: (running: Running) -> Unit) {
-        fun onClick(running: Running) = clickListener(running)
     }
 }
