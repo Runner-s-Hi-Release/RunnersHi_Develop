@@ -13,7 +13,7 @@ import retrofit2.HttpException
 class RunningRepository private constructor(private val runningDao: RunningDao) {
     val runnings: LiveData<List<Running>> = Transformations.map(
         runningDao.getRunnings()
-    ) {
+    ){
         it.asDomainModel()
     }
 

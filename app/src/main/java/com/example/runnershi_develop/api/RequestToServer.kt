@@ -22,5 +22,6 @@ object RequestToServer {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(RequestInterface::class.java)
+
     }
 }
