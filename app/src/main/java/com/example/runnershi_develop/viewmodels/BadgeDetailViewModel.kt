@@ -1,7 +1,6 @@
 package com.example.runnershi_develop.viewmodels
 
 import androidx.lifecycle.*
-import com.example.runnershi_develop.BuildConfig
 import com.example.runnershi_develop.data.BadgeDetail
 import com.example.runnershi_develop.data.BadgeDetailRepository
 import kotlinx.coroutines.launch
@@ -20,8 +19,7 @@ class BadgeDetailViewModel internal constructor(
 
     private fun getBadgeDetail() {
         viewModelScope.launch {
-            _badgeDetail.value =
-                badgeDetailRepository.getBadgeDetail(BuildConfig.USER_ACCESS_KEY, index)
+            _badgeDetail.value = badgeDetailRepository.getBadgeDetail(index)
         }
     }
 }
