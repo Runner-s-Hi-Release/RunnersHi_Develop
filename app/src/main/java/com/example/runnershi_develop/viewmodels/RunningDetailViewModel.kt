@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.runnershi_develop.BuildConfig
 import com.example.runnershi_develop.data.*
 import kotlinx.coroutines.launch
 
@@ -21,13 +20,10 @@ class RunningDetailViewModel(
 
     init {
         viewModelScope.launch {
-            val runningDetail =
-                runningRepository.getRunningDetail(BuildConfig.USER_ACCESS_KEY, runIdx)
+            val runningDetail = runningRepository.getRunningDetail(runIdx)
             _coordinates.value = runningDetail?.coordinates
-            val myRunningDetail =
-                runningRepository.getMyRunningDetail(BuildConfig.USER_ACCESS_KEY, runIdx)
-            val opponentRunningDetail =
-                runningRepository.getOpponentRunningDetail(BuildConfig.USER_ACCESS_KEY, gameIdx)
+            val myRunningDetail = runningRepository.getMyRunningDetail(runIdx)
+            val opponentRunningDetail = runningRepository.getOpponentRunningDetail(gameIdx)
             runningRepository.updateRunningDetail(
                 runIdx,
                 runningDetail?.asRunningDetail(),
