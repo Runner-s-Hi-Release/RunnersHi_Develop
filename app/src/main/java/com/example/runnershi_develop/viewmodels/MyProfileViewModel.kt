@@ -1,7 +1,6 @@
 package com.example.runnershi_develop.viewmodels
 
 import androidx.lifecycle.*
-import com.example.runnershi_develop.BuildConfig
 import com.example.runnershi_develop.data.Badge
 import com.example.runnershi_develop.data.User
 import com.example.runnershi_develop.data.UserRepository
@@ -22,7 +21,7 @@ class MyProfileViewModel internal constructor(
 
     private fun createUser() {
         viewModelScope.launch {
-            userRepository.createUser(BuildConfig.USER_ACCESS_KEY)
+            userRepository.createUser()
         }
     }
 
