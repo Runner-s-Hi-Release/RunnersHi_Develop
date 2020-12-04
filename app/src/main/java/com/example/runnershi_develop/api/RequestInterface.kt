@@ -1,14 +1,15 @@
 package com.example.runnershi_develop.api
 
 import com.example.runnershi_develop.data.*
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface RequestInterface {
 
-    @GET("user/myprofile")
-    suspend fun requestmyProfile(@Header("token") token : String): ResponseData<User>
+    @POST("user/signUUID")
+    suspend fun requestToken(@Body uuid: UUID): ResponseData<User>
+
+    @POST("running/start")
+    suspend fun requestRunningStart(@Header("jwt") token : String, @Body runningStart: RunningStart): ResponseData<Any>
 
     @GET("record/badge/detail/{flag}")
     suspend fun requestBadgeDetail(@Header("token") token : String, @Path("flag") flag : Int): ResponseData<BadgeDetail>
@@ -24,7 +25,7 @@ interface RequestInterface {
     suspend fun requestMyRunningDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):ResponseData<NetworkMyRunningDetail>
 
     @GET("ranking/runner")
-    suspend fun requestHeavyRunner(@Header("token") token :String): ResponseData<List<RankingRunner.HeavyRunner>>
+    suspend fun requestHeavyRunner(@Header("jwt") token :String): ResponseData<List<RankingRunner.HeavyRunner>>
 
     @GET("ranking/winner")
     suspend fun requestWinningRunner(@Header("token") token :String):ResponseData<List<RankingRunner.WinOrLoseRunner>>
