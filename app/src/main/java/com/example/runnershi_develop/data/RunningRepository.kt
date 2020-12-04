@@ -6,6 +6,8 @@ import androidx.lifecycle.Transformations
 import com.example.runnershi_develop.api.RequestToServer
 import com.example.runnershi_develop.api.ResultWrapper.*
 import com.example.runnershi_develop.api.safeApiCall
+import com.example.runnershi_develop.utilities.ACCESS_TOKEN
+import com.example.runnershi_develop.utilities.PrefInit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
@@ -17,18 +19,15 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         it.asDomainModel()
     }
 
-    suspend fun refreshRunnings(token: String) {
-        val callResult = safeApiCall {
-            RequestToServer
-                .service
-                .requestRunning(token)
-        }
-
-        when (callResult) {
+    suspend fun refreshRunnings() {
+        when (val callResult = safeApiCall {
+            RequestToServer.service.requestRunning(PrefInit.prefs.getString(ACCESS_TOKEN, ""))
+        }) {
             is Success -> {
-                val responseData = callResult.value.result
+                val responseData = callResult.value.data
                 withContext(Dispatchers.IO) {
-                    runningDao.insertRunning(responseData.asDatabaseModel())
+                    //TODO 서버 오류로 인하여 주석처리
+//                    runningDao.insertRunning(responseData.asDatabaseModel())
                 }
             }
             is HttpException -> {
@@ -46,40 +45,37 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         }
     }
 
-    suspend fun getRunningDetail(token: String, runIdx: Int): NetworkRunningDetail? {
+    suspend fun getRunningDetail(runIdx: Int): NetworkRunningDetail? {
         val callResult = safeApiCall {
-            RequestToServer.service.requestRunningDetail(token, runIdx)
+            RequestToServer.service.requestRunningDetail(PrefInit.prefs.getString(ACCESS_TOKEN, ""), runIdx)
         }
         when (callResult) {
             is Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
         }
         return null
     }
 
-    suspend fun getMyRunningDetail(token: String, runIdx: Int): NetworkMyRunningDetail? {
+    suspend fun getMyRunningDetail(runIdx: Int): NetworkMyRunningDetail? {
         val callResult = safeApiCall {
-            RequestToServer.service.requestMyRunningDetail(token, runIdx)
+            RequestToServer.service.requestMyRunningDetail(PrefInit.prefs.getString(ACCESS_TOKEN, ""), runIdx)
         }
         when (callResult) {
             is Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
         }
         return null
     }
 
-    suspend fun getOpponentRunningDetail(
-        token: String,
-        gameIdx: Int
-    ): NetworkOpponentRunningDetail? {
+    suspend fun getOpponentRunningDetail(gameIdx: Int): NetworkOpponentRunningDetail?  {
         val callResult = safeApiCall {
-            RequestToServer.service.requestOpponentRunningDetail(token, gameIdx)
+            RequestToServer.service.requestOpponentRunningDetail(PrefInit.prefs.getString(ACCESS_TOKEN, ""), gameIdx)
         }
         when (callResult) {
             is Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
         }
         return null
