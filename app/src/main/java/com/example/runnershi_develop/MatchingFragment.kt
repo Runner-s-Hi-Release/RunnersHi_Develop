@@ -39,6 +39,7 @@ class MatchingFragment : Fragment() {
         matchingViewModel.startForegroundService()
 
         matchingViewModel.success?.observe(viewLifecycleOwner, Observer {
+            //TODO running화면으로 넘어가기
         })
 
         val callback: OnBackPressedCallback =
