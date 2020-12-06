@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.example.runnershi_develop.viewmodels.RaceViewModel" />
     </data>
 
     <ScrollView
@@ -26,7 +29,7 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/race_winner_profile"
+                android:id="@+id/race_my_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="8dp"
@@ -34,25 +37,27 @@
                 android:background="@drawable/runactivity_whitebox_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_run_lock">
+                app:layout_constraintTop_toBottomOf="@+id/btn_run_lock"
+                app:raceRanking="@{viewModel.myRanking}">
 
 
                 <ImageView
-                    android:id="@+id/imgv_winner_raking"
+                    android:id="@+id/imgv_my_raking"
                     android:layout_width="40dp"
                     android:layout_height="36dp"
                     android:layout_marginVertical="20dp"
                     android:layout_marginStart="26dp"
                     android:src="@drawable/icon_run_win"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imgv_winner_profile"
+                    app:layout_constraintEnd_toStartOf="@+id/imgv_my_profile"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:raceRanking="@{viewModel.myRanking}"/>
 
                 <ImageView
-                    android:id="@+id/imgv_winner_profile"
+                    android:id="@+id/imgv_my_profile"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
                     android:layout_marginVertical="20dp"
@@ -60,13 +65,13 @@
                     android:layout_marginEnd="84dp"
                     android:src="@drawable/icon_redman_shorthair"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_winner_level_title"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_my_level_title"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_winner_raking"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_my_raking"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_winner_nickname"
+                    android:id="@+id/tv_my_nickname"
                     style="@style/TextStyle10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,51 +81,51 @@
                     android:text="짱졸귀챙챙이"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_winner_profile"
-                    app:layout_constraintTop_toTopOf="@id/race_winner_profile" />
+                    app:layout_constraintStart_toEndOf="@+id/imgv_my_profile"
+                    app:layout_constraintTop_toTopOf="@id/race_my_profile" />
 
                 <TextView
-                    android:id="@+id/tv_winner_level_title"
+                    android:id="@+id/tv_my_level_title"
                     style="@style/TextStyle11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:text="Lv."
                     android:layout_marginEnd="50dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_winner_level"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_winner_score_title"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_my_level"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_my_score_title"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_winner_profile"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_my_profile"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed" />
 
                 <TextView
-                    android:id="@+id/tv_winner_level"
+                    android:id="@+id/tv_my_level"
                     style="@style/TextStyle4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ff_nanumsqare"
                     android:text="초급"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_winner_level_title"
-                    app:layout_constraintStart_toStartOf="@id/tv_winner_level_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_winner_level_title" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_my_level_title"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_level_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_my_level_title" />
 
                 <TextView
-                    android:id="@+id/tv_winner_score"
+                    android:id="@+id/tv_my_score"
                     style="@style/TextStyle4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ff_nanumsqare"
                     android:text="11승 5패"
                     android:textFontWeight="400"
-                    app:layout_constraintBottom_toBottomOf="@+id/race_winner_profile"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_winner_score_title"
-                    app:layout_constraintStart_toStartOf="@+id/tv_winner_score_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_winner_score_title" />
+                    app:layout_constraintBottom_toBottomOf="@+id/race_my_profile"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_my_score_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_my_score_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_my_score_title" />
 
                 <TextView
-                    android:id="@+id/tv_winner_score_title"
+                    android:id="@+id/tv_my_score_title"
                     style="@style/TextStyle11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -128,42 +133,44 @@
                     android:fontFamily="@font/ff_nanumsqare"
                     android:text="전적"
                     android:layout_marginEnd="50dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_winner_score"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_my_score"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_winner_level_title"
-                    app:layout_constraintTop_toTopOf="@id/race_winner_profile"
+                    app:layout_constraintStart_toEndOf="@+id/tv_my_level_title"
+                    app:layout_constraintTop_toTopOf="@id/race_my_profile"
                     app:layout_constraintVertical_chainStyle="packed" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/race_loser_profile"
+                android:id="@+id/race_opponent_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="8dp"
                 android:background="@drawable/runactivity_whitebox_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/race_winner_profile">
+                app:layout_constraintTop_toBottomOf="@+id/race_my_profile"
+                app:raceRanking="@{viewModel.opponentRanking}">
 
 
                 <ImageView
-                    android:id="@+id/imgv_loser_raking"
+                    android:id="@+id/imgv_opponent_raking"
                     android:layout_width="40dp"
                     android:layout_height="36dp"
                     android:layout_marginVertical="20dp"
                     android:layout_marginStart="26dp"
                     android:src="@drawable/icon_run_lose"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imgv_loser_profile"
+                    app:layout_constraintEnd_toStartOf="@+id/imgv_opponent_profile"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:raceRanking="@{viewModel.opponentRanking}"/>
 
                 <ImageView
-                    android:id="@+id/imgv_loser_profile"
+                    android:id="@+id/imgv_opponent_profile"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
                     android:layout_marginVertical="20dp"
@@ -171,13 +178,13 @@
                     android:layout_marginEnd="84dp"
                     android:src="@drawable/icon_bluewomen_permhair"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_loser_level_title"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_opponent_level_title"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_loser_raking"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_opponent_raking"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_loser_nickname"
+                    android:id="@+id/tv_opponent_nickname"
                     style="@style/TextStyle10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -187,11 +194,11 @@
                     android:text="그저빛수현"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_loser_profile"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_opponent_profile"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_loser_level_title"
+                    android:id="@+id/tv_opponent_level_title"
                     style="@style/TextStyle11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,40 +206,40 @@
                     android:layout_marginBottom="8dp"
                     android:text="Lv."
                     android:layout_marginEnd="50dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_loser_level"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_loser_score_title"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_opponent_level"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_opponent_score_title"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_loser_profile"
+                    app:layout_constraintStart_toEndOf="@+id/imgv_opponent_profile"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed" />
 
                 <TextView
-                    android:id="@+id/tv_loser_level"
+                    android:id="@+id/tv_opponent_level"
                     style="@style/TextStyle4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ff_nanumsqare"
                     android:text="초급"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_loser_level_title"
-                    app:layout_constraintStart_toStartOf="@id/tv_loser_level_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_loser_level_title" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_opponent_level_title"
+                    app:layout_constraintStart_toStartOf="@id/tv_opponent_level_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_opponent_level_title" />
 
                 <TextView
-                    android:id="@+id/tv_loser_score"
+                    android:id="@+id/tv_opponent_score"
                     style="@style/TextStyle4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ff_nanumsqare"
                     android:text="11승 5패"
                     android:textFontWeight="400"
-                    app:layout_constraintBottom_toBottomOf="@+id/race_loser_profile"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_loser_score_title"
-                    app:layout_constraintStart_toStartOf="@+id/tv_loser_score_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_loser_score_title" />
+                    app:layout_constraintBottom_toBottomOf="@+id/race_opponent_profile"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_opponent_score_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_opponent_score_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_opponent_score_title" />
 
                 <TextView
-                    android:id="@+id/tv_loser_score_title"
+                    android:id="@+id/tv_opponent_score_title"
                     style="@style/TextStyle11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -240,10 +247,10 @@
                     android:fontFamily="@font/ff_nanumsqare"
                     android:text="전적"
                     android:layout_marginEnd="50dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_loser_score"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_opponent_score"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_loser_level_title"
+                    app:layout_constraintStart_toEndOf="@+id/tv_opponent_level_title"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed" />
 
@@ -285,7 +292,7 @@
                 android:text="--:--"
                 android:textFontWeight="400"
                 app:layout_constraintEnd_toEndOf="@id/guideline_right"
-                app:layout_constraintTop_toBottomOf="@id/race_loser_profile" />
+                app:layout_constraintTop_toBottomOf="@id/race_opponent_profile" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ly_run_rec"
