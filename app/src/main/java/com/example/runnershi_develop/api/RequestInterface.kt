@@ -36,4 +36,7 @@ interface RequestInterface {
         @Header("jwt") token: String,
         @Path("game_idx") game_idx: Int
     ): ResponseData<NetworkOpponentRunningDetail>
+
+    @GET("running/ranking/{run_idx}")
+    suspend fun requestRaceRanking(@Header("jwt") token :String, @Path("run_idx") run_idx :Int) : ResponseData<RaceRanking>
 }
