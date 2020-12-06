@@ -7,8 +7,8 @@ import com.example.runnershi_develop.R
 import com.example.runnershi_develop.extension.useGlide
 
 @BindingAdapter("profileImage")
-fun bindProfileImage(view: ImageView, profile: Int){
-    when(profile){
+fun bindProfileImage(view: ImageView, profile: Int) {
+    when (profile) {
         1 -> view.useGlide(R.drawable.icon_redman_shorthair)
         2 -> view.useGlide(R.drawable.icon_blueman_shorthair)
         3 -> view.useGlide(R.drawable.icon_redman_basichair)
@@ -22,15 +22,15 @@ fun bindProfileImage(view: ImageView, profile: Int){
 }
 
 @BindingAdapter("win", "lose")
-fun bindSetScore(view: TextView, win: Int, lose: Int){
+fun bindSetScore(view: TextView, win: Int, lose: Int) {
     view.text = view.context.resources.getString(R.string.win_lose).format(win, lose)
 }
 
 @BindingAdapter("level")
-fun bindLevel(view: TextView, level: Int){
+fun bindLevel(view: TextView, level: Int) {
     when (level) {
         1, 2, 3 -> {
-            view.text = view.context.resources.getStringArray(R.array.level)[level-1]
+            view.text = view.context.resources.getStringArray(R.array.level)[level - 1]
         }
         else -> {
             view.text = ""

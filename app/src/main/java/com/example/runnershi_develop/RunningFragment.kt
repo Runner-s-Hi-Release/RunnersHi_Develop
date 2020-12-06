@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.runnershi_develop.adapters.RunningAdapter
 import com.example.runnershi_develop.databinding.FragmentRunningBinding
 import com.example.runnershi_develop.utilities.InjectorUtils
+import com.example.runnershi_develop.utilities.OnClickListener
 import com.example.runnershi_develop.viewmodels.RunningViewModel
 
 class RunningFragment : Fragment() {
@@ -20,25 +21,25 @@ class RunningFragment : Fragment() {
         InjectorUtils.provideRecordViewModelFactory(requireActivity())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding = FragmentRunningBinding.inflate(inflater, container, false)
             .apply {
                 lifecycleOwner = this@RunningFragment
+                viewModel = this@RunningFragment.viewModel
             }
 
-        viewModelAdapter = RunningAdapter(RunningAdapter.OnClickListener{ record ->
+        viewModelAdapter = RunningAdapter(OnClickListener { record ->
             viewModel.displayRecordDetail(record)
         })
 
-        binding.recordList.adapter =viewModelAdapter
+        binding.recordList.adapter = viewModelAdapter
 
-        viewModel.runnings.observe(viewLifecycleOwner, Observer {
-            viewModelAdapter.submitList(it)
-        })
 
-        viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer {record ->
-            record?.let{
+        viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer { record ->
+            record?.let {
                 this.findNavController().navigate(
                     HomeViewPagerFragmentDirections
                         .actionHomeViewPagerFragmentToRunningDetailFragment(record)

@@ -12,8 +12,10 @@ import com.example.runnershi_develop.databinding.FragmentViewPagerBinding
 
 
 class HomeViewPagerFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding = FragmentViewPagerBinding.inflate(inflater, container, false)
         val viewPager = binding.homeViewPager
         val bottomNavigationView = binding.bottomNavigationView
@@ -21,15 +23,14 @@ class HomeViewPagerFragment : Fragment() {
         viewPager.adapter = HomeViewPagerAdapter(this)
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId) {
-                R.id.tabHome ->viewPager.currentItem=0
-                R.id.tabRecord ->viewPager.currentItem=1
-                R.id.tabRank ->viewPager.currentItem=2
-                R.id.tabMypage ->viewPager.currentItem=3
+            when (it.itemId) {
+                R.id.tabHome -> viewPager.currentItem = 0
+                R.id.tabRecord -> viewPager.currentItem = 1
+                R.id.tabRank -> viewPager.currentItem = 2
+                R.id.tabMypage -> viewPager.currentItem = 3
             }
             true
         }
-
         return binding.root
     }
 }

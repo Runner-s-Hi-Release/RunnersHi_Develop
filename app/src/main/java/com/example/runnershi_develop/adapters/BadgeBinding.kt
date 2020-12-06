@@ -8,15 +8,15 @@ import com.example.runnershi_develop.R
 import com.example.runnershi_develop.extension.useGlide
 
 @BindingAdapter("badgeIndex")
-fun bindBadgeText(view: TextView, badgeIndex: Int){
-    if(badgeIndex in 0..11)
+fun bindBadgeText(view: TextView, badgeIndex: Int) {
+    if (badgeIndex in 0..11)
         view.text = view.context.resources.getStringArray(R.array.badge_title)[badgeIndex]
 }
 
 @BindingAdapter("badge", "badgeIndex")
-fun bindBadgeImage(view: ImageView, badge: Boolean, badgeIndex: Int){
-    if(badge) {
-        when(badgeIndex){
+fun bindBadgeImage(view: ImageView, badge: Boolean, badgeIndex: Int) {
+    if (badge) {
+        when (badgeIndex) {
             0 -> view.useGlide(R.drawable.img_badge_egg)
             1 -> view.useGlide(R.drawable.img_badge_chick)
             2 -> view.useGlide(R.drawable.img_badge_chicken)
@@ -30,9 +30,8 @@ fun bindBadgeImage(view: ImageView, badge: Boolean, badgeIndex: Int){
             10 -> view.useGlide(R.drawable.img_badge_speed)
             11 -> view.useGlide(R.drawable.img_badge_flame_color)
         }
-    }
-    else {
-        when(badgeIndex){
+    } else {
+        when (badgeIndex) {
             0 -> view.useGlide(R.drawable.img_badge_egg_empty)
             1 -> view.useGlide(R.drawable.img_badge_chick_empty)
             2 -> view.useGlide(R.drawable.img_badge_chicken_empty)
@@ -50,8 +49,8 @@ fun bindBadgeImage(view: ImageView, badge: Boolean, badgeIndex: Int){
 }
 
 @BindingAdapter("badgeIndex")
-fun bindBadgeDetailImage(view: ImageView, badgeIndex: Int){
-    when(badgeIndex){
+fun bindBadgeDetailImage(view: ImageView, badgeIndex: Int) {
+    when (badgeIndex) {
         0 -> view.useGlide(R.drawable.img_badge_egglarge)
         1 -> view.useGlide(R.drawable.img_badge_chicklarge)
         2 -> view.useGlide(R.drawable.img_badge_chickenlarge)
@@ -68,7 +67,7 @@ fun bindBadgeDetailImage(view: ImageView, badgeIndex: Int){
 }
 
 @BindingAdapter("badgeList")
-fun bindBadgeList(view: RecyclerView, badgeList: List<Boolean?>?){
+fun bindBadgeList(view: RecyclerView, badgeList: List<Boolean?>?) {
     (view.adapter as MyProfileBadgeAdapter).submitList(badgeList)
 }
 

@@ -11,13 +11,18 @@ import com.example.runnershi_develop.databinding.FragmentSplashBinding
 import com.example.runnershi_develop.extension.animatorListener
 
 class SplashFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<FragmentSplashBinding>(inflater,
-            R.layout.fragment_splash,container,false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding = DataBindingUtil.inflate<FragmentSplashBinding>(
+            inflater,
+            R.layout.fragment_splash, container, false
+        )
 
         binding.splashStart.animatorListener {
-            view?.findNavController()?.navigate(SplashFragmentDirections.actionSplashFragmentToHomeViewPagerFragment())
+            view?.findNavController()
+                ?.navigate(SplashFragmentDirections.actionSplashFragmentToHomeViewPagerFragment())
         }
 
         return binding.root

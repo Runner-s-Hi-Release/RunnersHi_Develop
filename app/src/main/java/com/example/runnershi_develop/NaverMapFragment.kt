@@ -20,7 +20,6 @@ import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.PathOverlay
 
 class NaverMapFragment : Fragment(), OnMapReadyCallback {
-
     private var naverMap: NaverMap? = null
     lateinit var path: PathOverlay
     private var mapCoords = mutableListOf<LatLng>()
@@ -28,8 +27,8 @@ class NaverMapFragment : Fragment(), OnMapReadyCallback {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         val binding = DataBindingUtil.inflate<FragmentNaverMapBinding>(
             inflater, R.layout.fragment_naver_map, container, false
         )
@@ -42,7 +41,7 @@ class NaverMapFragment : Fragment(), OnMapReadyCallback {
         return binding.root
     }
 
-    fun updateCoordinates(coordinates: ArrayList<Coordinate>?){
+    fun updateCoordinates(coordinates: ArrayList<Coordinate>?) {
         if (!coordinates.isNullOrEmpty()) {
             mapCoords = emptyList<LatLng>().toMutableList()
             for (coordinate in coordinates) {
@@ -64,7 +63,7 @@ class NaverMapFragment : Fragment(), OnMapReadyCallback {
                 path.map = it
 
                 val marker = Marker()
-                marker.position = path.coords[path.coords.size-1]
+                marker.position = path.coords[path.coords.size - 1]
                 marker.icon = OverlayImage.fromResource(R.drawable.icon_location)
                 marker.map = naverMap
 

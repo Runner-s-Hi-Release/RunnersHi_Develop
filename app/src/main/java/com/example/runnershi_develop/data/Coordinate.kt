@@ -10,4 +10,4 @@ data class Coordinate(
     val latitude: Double,
     @SerializedName("longitude")
     val longitude: Double
-): Parcelable
+) : Parcelable

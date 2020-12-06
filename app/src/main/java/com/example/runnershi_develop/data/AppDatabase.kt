@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.example.runnershi_develop.utilities.DATABASE_NAME
 
 @TypeConverters(Converters::class)
-@Database(entities = [User::class, DatabaseRunning::class], version = 2, exportSchema = false)
+@Database(entities = [User::class, DatabaseRunning::class], version = 3, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract val runningDao: RunningDao

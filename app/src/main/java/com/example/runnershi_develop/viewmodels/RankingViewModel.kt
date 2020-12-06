@@ -30,7 +30,7 @@ class RankingViewModel internal constructor(
         getRankingRunner()
     }
 
-    fun getRankingRunner(){
+    private fun getRankingRunner(){
         viewModelScope.launch {
             try {
                 _heavyRunners.value = rankingRepository.getHeavyRunner(BuildConfig.USER_ACCESS_KEY)
@@ -44,5 +44,9 @@ class RankingViewModel internal constructor(
                 _losingRunners.value = ArrayList()
             }
         }
+    }
+    
+    fun onRefreshed(){
+        getRankingRunner()
     }
 }

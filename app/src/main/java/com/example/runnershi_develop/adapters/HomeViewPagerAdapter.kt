@@ -28,6 +28,7 @@ class HomeViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) 
     override fun getItemCount() = bottomNavigationFragmentsCreators.size
 
     override fun createFragment(position: Int): Fragment {
-        return bottomNavigationFragmentsCreators[position]?.invoke() ?: throw IndexOutOfBoundsException()
+        return bottomNavigationFragmentsCreators[position]?.invoke()
+            ?: throw IndexOutOfBoundsException()
     }
 }

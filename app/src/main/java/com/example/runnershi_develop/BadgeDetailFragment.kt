@@ -17,24 +17,24 @@ class BadgeDetailFragment : Fragment() {
 
     private val args: BadgeDetailFragmentArgs by navArgs()
 
-    private val badgeDetailViewModel: BadgeDetailViewModel by viewModels{
+    private val badgeDetailViewModel: BadgeDetailViewModel by viewModels {
         InjectorUtils.provideBadgeDetailViewModelFactory(args.badge.index)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         val binding = DataBindingUtil.inflate<FragmentBadgeDetailBinding>(
             inflater, R.layout.fragment_badge_detail, container, false
-        ).apply{
+        ).apply {
             viewModel = badgeDetailViewModel
             lifecycleOwner = viewLifecycleOwner
         }
-        binding.setClickListenerBack{view ->
+
+        binding.setClickListenerBack { view ->
             view.findNavController().navigateUp()
         }
 
         return binding.root
     }
-
 }
