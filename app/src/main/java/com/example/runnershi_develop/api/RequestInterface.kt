@@ -8,32 +8,32 @@ import retrofit2.http.Path
 interface RequestInterface {
 
     @GET("user/myprofile")
-    suspend fun requestmyProfile(@Header("token") token : String): ResponseData<User>
+    suspend fun requestmyProfile(@Header("jwt") token : String): ResponseData<User>
 
     @GET("record/badge/detail/{flag}")
-    suspend fun requestBadgeDetail(@Header("token") token : String, @Path("flag") flag : Int): ResponseData<BadgeDetail>
+    suspend fun requestBadgeDetail(@Header("jwt") token : String, @Path("flag") flag : Int): ResponseData<BadgeDetail>
 
     @GET("record/all")
-    suspend fun requestRunning(@Header("token") token : String)
+    suspend fun requestRunning(@Header("jwt") token : String)
             : ResponseData<List<NetworkRunning>>
 
     @GET("/record/detail/{run_idx}")
-    suspend fun requestRunningDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):ResponseData<NetworkRunningDetail>
+    suspend fun requestRunningDetail(@Header("jwt") token :String, @Path("run_idx") run_idx :Int):ResponseData<NetworkRunningDetail>
 
     @GET("/record/run/{run_idx}")
-    suspend fun requestMyRunningDetail(@Header("token") token :String, @Path("run_idx") run_idx :Int):ResponseData<NetworkMyRunningDetail>
+    suspend fun requestMyRunningDetail(@Header("jwt") token :String, @Path("run_idx") run_idx :Int):ResponseData<NetworkMyRunningDetail>
 
-    @GET("ranking/runner")
-    suspend fun requestHeavyRunner(@Header("token") token :String): ResponseData<List<RankingRunner.HeavyRunner>>
+    @GET("ranking/runners")
+    suspend fun requestHeavyRunner(@Header("jwt") token :String): ResponseData<List<RankingRunner.HeavyRunner>>
 
-    @GET("ranking/winner")
-    suspend fun requestWinningRunner(@Header("token") token :String):ResponseData<List<RankingRunner.WinOrLoseRunner>>
+    @GET("ranking/winners")
+    suspend fun requestWinningRunner(@Header("jwt") token :String):ResponseData<List<RankingRunner.WinOrLoseRunner>>
 
-    @GET("ranking/loser")
-    suspend fun requestLosingRunner(@Header("token") token :String): ResponseData<List<RankingRunner.WinOrLoseRunner>>
+    @GET("ranking/losers")
+    suspend fun requestLosingRunner(@Header("jwt") token :String): ResponseData<List<RankingRunner.WinOrLoseRunner>>
 
     suspend fun requestOpponentRunningDetail(
-        @Header("token") token: String,
+        @Header("jwt") token: String,
         @Path("game_idx") game_idx: Int
     ): ResponseData<NetworkOpponentRunningDetail>
 }
