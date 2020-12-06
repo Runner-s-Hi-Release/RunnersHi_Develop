@@ -10,7 +10,7 @@ class BadgeDetailRepository private constructor(
         when (val callResult =
             safeApiCall(call = { RequestToServer.service.requestBadgeDetail(token, index) })) {
             is ResultWrapper.Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
         }
         return null
