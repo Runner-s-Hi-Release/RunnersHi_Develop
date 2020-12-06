@@ -20,8 +20,8 @@ class UserRepository private constructor(
         withContext(Dispatchers.IO) {
             when (result) {
                 is ResultWrapper.Success -> {
-                    Log.d("result", result.value.result.nickname)
-                    userDao.insertUser(result.value.result)
+                    Log.d("result", result.value.data.nickname)
+                    userDao.insertUser(result.value.data)
 
                 }
             }

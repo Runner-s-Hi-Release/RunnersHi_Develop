@@ -30,9 +30,11 @@ class RankingFragment : Fragment() {
             rvRankingLosingRunner.adapter = RankingRunnerAdapter()
         }
 
-        binding.refreshLayout.setOnRefreshListener {
-            binding.viewModel!!.getRankingRunner()
-            binding.refreshLayout.isRefreshing = false
+        binding.apply{
+            refreshLayout.setOnRefreshListener {
+                viewModel!!.onRefreshed()
+                refreshLayout.isRefreshing = false
+            }
         }
 
         return binding.root
