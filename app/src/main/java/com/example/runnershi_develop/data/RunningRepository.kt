@@ -26,7 +26,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
 
         when (callResult) {
             is Success -> {
-                val responseData = callResult.value.result
+                val responseData = callResult.value.data
                 withContext(Dispatchers.IO) {
                     runningDao.insertRunning(responseData.asDatabaseModel())
                 }
@@ -52,7 +52,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         }
         when (callResult) {
             is Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
         }
         return null
@@ -64,7 +64,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         }
         when (callResult) {
             is Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
         }
         return null
@@ -79,7 +79,7 @@ class RunningRepository private constructor(private val runningDao: RunningDao) 
         }
         when (callResult) {
             is Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
         }
         return null
