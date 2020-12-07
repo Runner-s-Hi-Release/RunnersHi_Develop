@@ -48,11 +48,11 @@ fun bindDistance(textView: TextView, meter: Int?) {
 fun bindTime(textView: TextView, time: String?) {
     time?.let {
         with(it.split(":")) {
-            textView.text = if (this[0] == "00") {
+            /*textView.text = if (this[0] == "00") {
                 "${this[1]}:${this[2]}"
             } else {
                 "${this[0][1]}:${this[1]}:${this[2]}"
-            }
+            }*/
         }
     }
 }

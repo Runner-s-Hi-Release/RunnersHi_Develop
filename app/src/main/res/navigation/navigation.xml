@@ -9,13 +9,9 @@
         android:id="@+id/splash_fragment"
         android:name="com.example.runnershi_develop.SplashFragment"
         tools:layout="@layout/fragment_splash">
-
         <action
-            android:id="@+id/action_splashFragment_to_homeViewPagerFragment"
-            app:destination="@id/home_view_pager_fragment"
-            app:popUpTo="@id/splash_fragment"
-            app:popUpToInclusive="true" />
-
+            android:id="@+id/action_splash_fragment_to_raceFragment"
+            app:destination="@id/raceFragment" />
     </fragment>
 
     <fragment
@@ -51,6 +47,14 @@
             android:name="running"
             app:argType="com.example.runnershi_develop.data.Running"
             />
+    </fragment>
+    <fragment
+        android:id="@+id/raceFragment"
+        android:name="com.example.runnershi_develop.RaceFragment"
+        android:label="RaceFragment" >
+        <argument
+            android:name="runIdx"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

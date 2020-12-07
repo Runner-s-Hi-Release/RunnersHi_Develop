@@ -13,7 +13,7 @@ class RankingRepository {
         }
         when (callResult) {
             is ResultWrapper.Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
             is ResultWrapper.NetworkError -> {
                 throw error("NETWORK ERROR")
@@ -30,7 +30,7 @@ class RankingRepository {
         }
         when (callResult) {
             is ResultWrapper.Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
             is ResultWrapper.NetworkError -> {
                 throw error("NETWORK ERROR")
@@ -47,7 +47,7 @@ class RankingRepository {
         }
         when (callResult) {
             is ResultWrapper.Success -> {
-                return callResult.value.result
+                return callResult.value.data
             }
             is ResultWrapper.NetworkError -> {
                 throw error("NETWORK ERROR")

@@ -26,6 +26,10 @@ object InjectorUtils {
         return RankingRepository.getInstance()
     }
 
+    private fun getRaceRepository(): RaceRepository {
+        return RaceRepository.getInstance()
+    }
+
     fun provideMyProfileViewModelFactory(
         context: Context
     ): MyProfileViewModelFactory {
@@ -56,5 +60,11 @@ object InjectorUtils {
     fun provideRankingViewModelFactory(
     ): RankingViewModelFactory {
         return RankingViewModelFactory(getRankingRepository())
+    }
+
+    fun provideRaceViewModelFactory(
+        runIdx: Int
+    ): RaceViewModelFactory {
+        return RaceViewModelFactory(getRaceRepository(), runIdx)
     }
 }

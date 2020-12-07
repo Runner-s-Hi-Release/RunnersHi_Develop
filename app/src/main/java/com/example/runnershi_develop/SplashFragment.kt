@@ -22,7 +22,7 @@ class SplashFragment : Fragment() {
 
         binding.splashStart.animatorListener {
             view?.findNavController()
-                ?.navigate(SplashFragmentDirections.actionSplashFragmentToHomeViewPagerFragment())
+                ?.navigate(SplashFragmentDirections.actionSplashFragmentToRaceFragment(27/**args**/))
         }
 
         return binding.root
