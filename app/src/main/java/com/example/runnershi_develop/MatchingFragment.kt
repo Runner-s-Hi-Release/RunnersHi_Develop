@@ -16,7 +16,6 @@ import com.example.runnershi_develop.databinding.FragmentMatchingBinding
 import com.example.runnershi_develop.utilities.InjectorUtils
 import com.example.runnershi_develop.viewmodels.MatchingViewModel
 
-
 class MatchingFragment : Fragment() {
 
     private val args: MatchingFragmentArgs by navArgs()
@@ -37,9 +36,22 @@ class MatchingFragment : Fragment() {
                 }
             }
         matchingViewModel.startForegroundService()
+        matchingViewModel.startTimerTask()
 
-        matchingViewModel.success?.observe(viewLifecycleOwner, Observer {
-            //TODO running화면으로 넘어가기
+        matchingViewModel.opponent?.observe(viewLifecycleOwner, Observer {
+            if (it != null){
+                findNavController().navigate(
+                    MatchingFragmentDirections
+                        .actionMatchingFragmentToMatchSuccessFragment()
+                )
+            }
+        })
+
+        matchingViewModel.matchingTime?.observe(viewLifecycleOwner, Observer {
+            if (it > 300){
+                matchingViewModel.stopForegroundService()
+            }
+            binding.progressMatchProc.progress = it
         })
 
         val callback: OnBackPressedCallback =
@@ -49,11 +61,9 @@ class MatchingFragment : Fragment() {
                     findNavController().navigateUp()
                 }
             }
+
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-
-
 
         return binding.root
     }
-
 }
