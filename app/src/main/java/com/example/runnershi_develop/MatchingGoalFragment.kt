@@ -25,8 +25,8 @@ class MatchingGoalFragment : Fragment() {
                     selectedRunTime = when (i) {
                         R.id.btn_goal_30 -> 30 * 60
                         R.id.btn_goal_45 -> 45 * 60
-                        R.id.btn_goal_60 -> 30 * 60
-                        R.id.btn_goal_90 -> 45 * 60
+                        R.id.btn_goal_60 -> 60 * 60
+                        R.id.btn_goal_90 -> 90 * 60
                         else -> 30 * 60
                     }
                 }
