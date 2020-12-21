@@ -8,8 +8,14 @@ interface RequestInterface {
     @POST("user/signUUID")
     suspend fun requestToken(@Body uuid: UUID): ResponseData<User>
 
-    @POST("running/start")
-    suspend fun requestRunningStart(@Header("jwt") token : String, @Body runningStart: RunningStart): ResponseData<Any>
+    @POST("running/find")
+    suspend fun requestRunningFind(@Header("jwt") token : String, @Body runningStart: RunningStart): ResponseData<Any>
+
+    @DELETE("running/stopMatching")
+    suspend fun requestStopMatching(@Header("jwt") token : String): ResponseData<Any>
+
+    @GET("running/confirm")
+    suspend fun requestConfirm(@Header("jwt") token : String): ResponseData<Opponent>
 
     @GET("record/badge/detail/{flag}")
     suspend fun requestBadgeDetail(@Header("token") token : String, @Path("flag") flag : Int): ResponseData<BadgeDetail>
