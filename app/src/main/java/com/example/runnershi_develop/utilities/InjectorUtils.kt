@@ -80,6 +80,13 @@ object InjectorUtils {
         return MatchingViewModelFactory(getMatchingRepository(intent, context), runningStart)
     }
 
+    fun provideMatchSuccessViewModelFactory(
+        context: Context,
+        intent: Intent
+    ): MatchSuccessViewModelFactory {
+        return MatchSuccessViewModelFactory(getMatchingRepository(intent, context))
+    }
+
     fun provideForegroundServiceFactory(
         context: Context
     ): Intent{
