@@ -15,8 +15,12 @@ class MatchingRepository private constructor(
     private val context: Context
 ) {
 
-    fun getSuccess(): MutableLiveData<Boolean> {
-        return _success
+    fun getOpponent(): MutableLiveData<Opponent> {
+        return _opponent
+    }
+
+    fun deleteOpponent(){
+        _opponent.value = null
     }
 
     fun startForegroundService(runningStart: RunningStart) {
@@ -39,7 +43,7 @@ class MatchingRepository private constructor(
     companion object {
         // For Singleton instantiation
         @Volatile private var instance: MatchingRepository? = null
-        val _success: MutableLiveData<Boolean> = MutableLiveData()
+        val _opponent: MutableLiveData<Opponent> = MutableLiveData()
         fun getInstance(intent: Intent, context: Context) =
             instance ?: synchronized(this) {
                 instance ?: MatchingRepository(intent, context).also { instance = it }
@@ -51,7 +55,7 @@ class MatchingRepository private constructor(
          override fun onReceiveResult(resultCode: Int, resultData: Bundle?) {
             super.onReceiveResult(resultCode, resultData)
             when(resultCode){
-                Activity.RESULT_OK -> _success.value = resultData?.getBoolean("success")
+                Activity.RESULT_OK -> _opponent.value = resultData?.getParcelable<Opponent>("opponent")
             }
         }
     }
