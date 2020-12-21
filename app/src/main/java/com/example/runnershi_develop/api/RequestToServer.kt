@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 object RequestToServer {
     private const val BASE_URL = "http://3.34.213.235/"
@@ -13,6 +14,7 @@ object RequestToServer {
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(logger)
+        .readTimeout(60, TimeUnit.SECONDS)
         .build()
 
     val service: RequestInterface by lazy {
