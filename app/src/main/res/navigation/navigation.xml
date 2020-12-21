@@ -29,10 +29,28 @@
         <action
             android:id="@+id/action_onBoardFragment_to_homeViewPagerFragment"
             app:destination="@id/home_view_pager_fragment"
-            app:popUpTo="@id/on_board_fragment"
+            app:popUpTo="@id/home_view_pager_fragment"
             app:popUpToInclusive="true" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/count_down_fragment"
+        android:name="com.example.runnershi_develop.CountDownFragment"
+        tools:layout="@layout/fragment_count_down">
+    </fragment>
+
+    <fragment
+        android:id="@+id/match_success_fragment"
+        android:name="com.example.runnershi_develop.MatchSuccessFragment"
+        tools:layout="@layout/fragment_match_success">
+        <action
+            android:id="@+id/action_match_success_fragment_to_count_down_fragment"
+            app:destination="@id/count_down_fragment"
+            app:popUpTo="@id/match_success_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
     <fragment
         android:id="@+id/matching_fragment"
         android:name="com.example.runnershi_develop.MatchingFragment"
@@ -40,6 +58,11 @@
         <argument
             android:name="RunningStart"
             app:argType="com.example.runnershi_develop.data.RunningStart"/>
+        <action
+            android:id="@+id/action_matching_fragment_to_match_success_fragment"
+            app:destination="@id/match_success_fragment"
+            app:popUpTo="@id/matching_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
