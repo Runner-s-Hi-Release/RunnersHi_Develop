@@ -26,11 +26,10 @@ class MatchingGenderFragment : Fragment() {
                     btn_rival_next.background = ContextCompat.getDrawable(requireActivity(), R.drawable.bg_btn_goal_next)
                     btn_rival_next.setTextColor(ContextCompat.getColor(requireActivity(), R.color.white))
                     selectedGender = when (i) {
-                        R.id.btn_goal_30 -> 30 * 60
-                        R.id.btn_goal_45 -> 45 * 60
-                        R.id.btn_goal_60 -> 30 * 60
-                        R.id.btn_goal_90 -> 45 * 60
-                        else -> 30 * 60
+                        R.id.btn_rival_man -> 1
+                        R.id.btn_rival_woman -> 2
+                        R.id.btn_rival_random -> 3
+                        else -> 0
                     }
                 }
                 btnRivalNext.setOnClickListener{
