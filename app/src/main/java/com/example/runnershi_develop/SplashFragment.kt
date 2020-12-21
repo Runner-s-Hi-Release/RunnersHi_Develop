@@ -29,11 +29,14 @@ class SplashFragment : Fragment() {
             lifecycleOwner = this@SplashFragment
         }
 
+        if (PrefInit.prefs.getString(FIRST_RUN, "y") == "y") {
+            PrefInit.prefs.setString(USER_ID, UUID.randomUUID().toString())
+        }
+        splashViewModel.createUser()
+
         binding.splashStart.animatorListener {
             if (PrefInit.prefs.getString(FIRST_RUN, "y") == "y") {
-                PrefInit.prefs.setString(USER_ID, UUID.randomUUID().toString())
                 PrefInit.prefs.setString(FIRST_RUN, "n")
-                splashViewModel.createUser()
                 view?.findNavController()
                     ?.navigate(SplashFragmentDirections.actionSplashFragmentToOnBoardFragment())
             } else {
