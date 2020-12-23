@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_back" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/dot_blue" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/dot_blue" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/dot_blue" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nanumsquareb"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/signup_runningtype_title"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imgv_signup_profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/icon_defaultpeople"/>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:paddingLeft="2dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imgv_signup_profile"
+        app:layout_constraintEnd_toEndOf="@+id/imgv_signup_profile"
+        app:srcCompat="@drawable/icon_pencil" />
+
+    <TextView
+        android:id="@+id/tv_signup_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="11sp"
+        android:text="@string/signup_nickname"
+        android:fontFamily="@font/nanumsquareb"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_signup_nickname"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_signup_profile" />
+
+    <TextView
+        android:id="@+id/btn_signup_nickname_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/blue_btn_background"
+        android:lineSpacingExtra="11sp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="14dp"
+        android:text="@string/signup_duplicate_check"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/signup_guideline_right"
+        app:layout_constraintTop_toTopOf="@+id/edt_signup_nickname" />
+
+    <EditText
+        android:id="@+id/edt_signup_nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="8dp"
+        android:textSize="14sp"
+        android:fontFamily="@font/nanumsquarer"
+        android:background="@drawable/grey_round_background"
+        android:ems="10"
+        android:inputType="textPersonName|textNoSuggestions"
+        android:paddingVertical="14dp"
+        android:paddingLeft="12dp"
+        android:singleLine="true"
+        android:hint="@string/signup_nickname_hint"
+        android:textColor="@color/brown_grey"
+        app:layout_constraintEnd_toStartOf="@+id/btn_signup_nickname_confirm"
+        app:layout_constraintStart_toStartOf="@+id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_nickname" />
+
+    <TextView
+        android:id="@+id/tv_signup_nickname_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="6dp"
+        android:lineSpacingExtra="13sp"
+        android:fontFamily="@font/nanumsquarer"
+        android:text="@string/signup_nickname_error"
+        android:visibility="invisible"
+        android:textColor="@color/grapefruit"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/edt_signup_nickname" />
+
+    <TextView
+        android:id="@+id/tv_signup_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="11sp"
+        android:text="@string/signup_gender"
+        android:fontFamily="@font/nanumsquareb"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_nickname_error" />
+
+    <RadioGroup
+        android:id="@+id/rg_signup_gender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/signup_guideline_right"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_signup_gender">
+
+        <RadioButton
+            android:id="@+id/btn_signup_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_background"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingVertical="18dp"
+            android:text="@string/signup_gender_man"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareb"/>
+
+        <RadioButton
+            android:id="@+id/btn_signup_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_background"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingVertical="18dp"
+            android:text="@string/signup_gender_woman"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareb"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_signup_lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="11sp"
+        android:text="@string/signup_lv"
+        android:fontFamily="@font/nanumsquareb"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/rg_signup_gender" />
+
+    <TextView
+        android:id="@+id/btn_signup_what_is_lv"
+        android:layout_marginTop="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#656565"
+        android:lineSpacingExtra="11sp"
+        android:text="@string/signup_what_is_lv"
+        android:fontFamily="@font/nanumsquarer"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_lv"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg_signup_lv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/signup_guideline_right"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/btn_signup_what_is_lv">
+
+        <RadioButton
+            android:id="@+id/btn_signup_lv_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/selector_btn_background"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingVertical="18dp"
+            android:text="@string/signup_lv_low"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareb" />
+
+        <RadioButton
+            android:id="@+id/btn_signup_lv_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/selector_btn_background"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingVertical="18dp"
+            android:text="@string/signup_lv_middle"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareb" />
+
+        <RadioButton
+            android:id="@+id/btn_signup_lv_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_background"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingVertical="18dp"
+            android:text="@string/signup_lv_high"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareb" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_signup_reveal_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="11sp"
+        android:text="@string/signup_reveal"
+        android:fontFamily="@font/nanumsquareb"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/rg_signup_lv" />
+
+    <TextView
+        android:id="@+id/tv_signup_reveal_set_desc"
+        android:layout_marginTop="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#656565"
+        android:lineSpacingExtra="11sp"
+        android:fontFamily="@font/nanumsquarer"
+        android:text="@string/signup_reveal_desc"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_reveal_set"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg_signup_reveal_set"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/signup_guideline_right"
+        app:layout_constraintStart_toStartOf="@id/signup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_signup_reveal_set_desc">
+
+        <RadioButton
+            android:id="@+id/btn_signup_reveal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/selector_btn_background"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingVertical="18dp"
+            android:text="@string/signup_reveal_yes"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareb" />
+
+        <RadioButton
+            android:id="@+id/btn_signup_un_reveal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_background"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingVertical="18dp"
+            android:text="@string/signup_reveal_no"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareb" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/btn_signup_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/custom_very_light_pink_8"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="9sp"
+        android:paddingHorizontal="60dp"
+        android:paddingVertical="16dp"
+        android:text="@string/signup_start"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:fontFamily="@font/nanumsquareb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_signup_reveal_set" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/signup_guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/signup_guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="30dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
