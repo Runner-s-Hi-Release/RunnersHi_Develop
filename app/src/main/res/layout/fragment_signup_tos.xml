@@ -1,0 +1,255 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SignupTosFragment">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_back" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/dot_gray" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/dot_gray" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/dot_blue" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nanumsquareb"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/signup_tos_title"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <CheckBox
+        android:id="@+id/checkBox_signup_tos_all_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/custom_checkbox"
+        android:button="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/singup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+    <TextView
+        android:id="@+id/tv_signup_tos_all_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/nanumsquarer"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/signup_tos_all_agree"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_signup_tos_all_agree"
+        app:layout_constraintTop_toTopOf="@+id/checkBox_signup_tos_all_agree" />
+
+    <CheckBox
+        android:id="@+id/checkBox_signup_tos_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_checkbox"
+        android:button="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/singup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_signup_tos_all_agree" />
+
+    <TextView
+        android:id="@+id/tv_signup_tos_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/nanumsquarer"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/signup_tos_agree"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_signup_tos_agree"
+        app:layout_constraintTop_toTopOf="@+id/checkBox_signup_tos_agree" />
+
+    <CheckBox
+        android:id="@+id/checkBox_signup_tos_privacy_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/custom_checkbox"
+        android:button="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/singup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_signup_tos_agree" />
+
+    <TextView
+        android:id="@+id/tv_signup_tos_privacy_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/nanumsquarer"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/signup_tos_privacy_agree"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_signup_tos_privacy_agree"
+        app:layout_constraintTop_toTopOf="@+id/checkBox_signup_tos_privacy_agree" />
+
+    <CheckBox
+        android:id="@+id/checkBox_signup_tos_marketing_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/custom_checkbox"
+        android:button="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/singup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_signup_tos_privacy_agree" />
+
+    <TextView
+        android:id="@+id/tv_signup_tos_marketing_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/nanumsquarer"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/signup_tos_marketing_agree"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_signup_tos_marketing_agree"
+        app:layout_constraintTop_toTopOf="@+id/checkBox_signup_tos_marketing_agree" />
+
+    <TextView
+        android:id="@+id/btn_signup_tos_all_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquarer"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/lightish_blue"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/signup_see"
+        app:layout_constraintTop_toTopOf="@+id/tv_signup_tos_all_agree"
+        app:layout_constraintStart_toEndOf="@+id/tv_signup_tos_all_agree"
+        />
+
+    <TextView
+        android:id="@+id/btn_signup_tos_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquarer"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/lightish_blue"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/signup_see"
+        app:layout_constraintTop_toTopOf="@+id/tv_signup_tos_agree"
+        app:layout_constraintStart_toEndOf="@+id/tv_signup_tos_agree"
+        />
+
+    <TextView
+        android:id="@+id/btn_signup_tos_privacy_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquarer"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/lightish_blue"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/signup_see"
+        app:layout_constraintTop_toTopOf="@+id/tv_signup_tos_privacy_agree"
+        app:layout_constraintStart_toEndOf="@+id/tv_signup_tos_privacy_agree"
+        />
+
+    <TextView
+        android:id="@+id/btn_signup_tos_marketing_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquarer"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/lightish_blue"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/signup_see"
+        app:layout_constraintTop_toTopOf="@+id/tv_signup_tos_marketing_agree"
+        app:layout_constraintStart_toEndOf="@+id/tv_signup_tos_marketing_agree"
+        />
+
+    <TextView
+        android:id="@+id/btn_signup_tos_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="54dp"
+        android:background="@drawable/custom_very_light_pink_8"
+        android:fontFamily="@font/nanumsquareb"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="15sp"
+        android:padding="16dp"
+        android:text="@string/signup_next"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_tos_marketing_agree" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/singup_guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
