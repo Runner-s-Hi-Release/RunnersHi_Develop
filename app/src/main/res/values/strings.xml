@@ -37,6 +37,14 @@
     <string name="ranking_losing_runner_title">졌.잘.싸</string>
     <string name="ranking_losing_runner_desc">10월 한 달 아쉽게 졌지만 열심히 러닝한 러너</string>
     <string name="network_error">접속이 지연되고 있습니다.\n네트워크 연결 상태를 확인해 주세요!</string>
+    <string name="next">NEXT</string>
+    <string name="start">START</string>
+    <string name="matching_context">같은 레벨의 러너를\n
+5분 안에 찾아서 알림을 드릴게요\n
+러닝 전 준비운동을 해 주세요!</string>
+    <string name="matching_stop">매칭 중단하기</string>
+    <string name="with_runner">당신과 함께 뛸 러너는?</string>
+    <string name="soon_count">곧 카운트 다운이 시작됩니다</string>
     <string-array name="level">
         <item>초급</item>
         <item>중급</item>

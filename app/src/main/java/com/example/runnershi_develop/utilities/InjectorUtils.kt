@@ -1,7 +1,9 @@
 package com.example.runnershi_develop.utilities
 
 import android.content.Context
+import android.content.Intent
 import com.example.runnershi_develop.data.*
+import com.example.runnershi_develop.service.ForegroundServiceFactory
 import com.example.runnershi_develop.viewmodels.*
 
 object InjectorUtils {
@@ -24,6 +26,18 @@ object InjectorUtils {
 
     private fun getRankingRepository(): RankingRepository {
         return RankingRepository.getInstance()
+    }
+
+    private fun getMatchingRepository(intent: Intent, context: Context): MatchingRepository {
+        return MatchingRepository.getInstance(intent, context)
+    }
+
+    fun provideSplashViewModelFactory(
+        context: Context
+    ): SplashViewModelFactory {
+        return SplashViewModelFactory(
+            getUserRepository(context)
+        )
     }
 
     fun provideMyProfileViewModelFactory(
@@ -57,4 +71,26 @@ object InjectorUtils {
     ): RankingViewModelFactory {
         return RankingViewModelFactory(getRankingRepository())
     }
+
+    fun provideMatchingViewModelFactory(
+        runningStart: RunningStart,
+        context: Context,
+        intent: Intent
+    ): MatchingViewModelFactory {
+        return MatchingViewModelFactory(getMatchingRepository(intent, context), runningStart)
+    }
+
+    fun provideMatchSuccessViewModelFactory(
+        context: Context,
+        intent: Intent
+    ): MatchSuccessViewModelFactory {
+        return MatchSuccessViewModelFactory(getMatchingRepository(intent, context))
+    }
+
+    fun provideForegroundServiceFactory(
+        context: Context
+    ): Intent{
+        return ForegroundServiceFactory(context).create<Intent>()
+    }
+
 }

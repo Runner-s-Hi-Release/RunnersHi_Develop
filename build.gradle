@@ -38,6 +38,7 @@ buildscript {
         version_retrofit = "2.6.0"
         naverVersion = '3.9.1'
         lottieVersion = '3.4.1'
+        conscrpt_version = '2.2.1'
         user_access_key='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QyIiwicGFzc3dvcmQiOiJ0ZXN0MiIsInRva2VuIjoidG9rZW4iLCJpYXQiOjE2MDEwMjA0NzcsImV4cCI6MTYwMTA1NjQ3N30.nzQYMFeSJGk41CeCBCkOds4nK7Oy3gtOJQC3MUtiJDQ'
     }
 

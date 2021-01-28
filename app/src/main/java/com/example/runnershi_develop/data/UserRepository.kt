@@ -5,25 +5,33 @@ import androidx.lifecycle.LiveData
 import com.example.runnershi_develop.api.RequestToServer
 import com.example.runnershi_develop.api.ResultWrapper
 import com.example.runnershi_develop.api.safeApiCall
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.example.runnershi_develop.utilities.ACCESS_TOKEN
+import com.example.runnershi_develop.utilities.PrefInit
+import com.example.runnershi_develop.utilities.USER_ID
+import retrofit2.HttpException
 
 class UserRepository private constructor(
     private val userDao: UserDao
 ) {
-    suspend fun createUser(token: String) {
-        val result = safeApiCall(call = {
-            RequestToServer
-                .service
-                .requestmyProfile(token)
-        })
-        withContext(Dispatchers.IO) {
-            when (result) {
-                is ResultWrapper.Success -> {
-                    Log.d("result", result.value.result.nickname)
-                    userDao.insertUser(result.value.result)
 
-                }
+    suspend fun createUser() {
+        when (val callResult = safeApiCall {
+            RequestToServer.service
+                .requestToken(UUID(PrefInit.prefs.getString(USER_ID, "")))
+        }) {
+            is ResultWrapper.Success -> {
+                PrefInit.prefs.setString(ACCESS_TOKEN, callResult.value.data.accessToken)
+                userDao.insertUser(callResult.value.data)
+                Log.d("Running Repository", "Success")
+            }
+            is HttpException -> {
+                Log.d("Running Repository", "Call Result: Http Exception")
+            }
+            is ResultWrapper.NetworkError -> {
+                Log.d("Running Repository", "Call Result: Network Error")
+            }
+            is ResultWrapper.GenericError -> {
+                Log.d("Running Repository", "Call Result: Generic Error")
             }
         }
     }

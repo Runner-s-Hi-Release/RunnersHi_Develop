@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "user")
 data class User(
-    @SerializedName("user_idx")
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val userIdx: Int,
+    val accessToken: String,
     val nickname: String,
     val gender: Int,
     val level: Int,

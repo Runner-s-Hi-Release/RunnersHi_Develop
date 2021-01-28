@@ -15,7 +15,79 @@
             app:destination="@id/home_view_pager_fragment"
             app:popUpTo="@id/splash_fragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_onBoardFragment"
+            app:destination="@id/on_board_fragment"
+            app:popUpTo="@id/splash_fragment"
+            app:popUpToInclusive="true" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/on_board_fragment"
+        android:name="com.example.runnershi_develop.OnBoardFragment"
+        tools:layout="@layout/fragment_on_board">
+        <action
+            android:id="@+id/action_onBoardFragment_to_homeViewPagerFragment"
+            app:destination="@id/home_view_pager_fragment"
+            app:popUpTo="@id/home_view_pager_fragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/count_down_fragment"
+        android:name="com.example.runnershi_develop.CountDownFragment"
+        tools:layout="@layout/fragment_count_down">
+    </fragment>
+
+    <fragment
+        android:id="@+id/match_success_fragment"
+        android:name="com.example.runnershi_develop.MatchSuccessFragment"
+        tools:layout="@layout/fragment_match_success">
+        <action
+            android:id="@+id/action_match_success_fragment_to_count_down_fragment"
+            app:destination="@id/count_down_fragment"
+            app:popUpTo="@id/match_success_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/matching_fragment"
+        android:name="com.example.runnershi_develop.MatchingFragment"
+        tools:layout="@layout/fragment_matching">
+        <argument
+            android:name="RunningStart"
+            app:argType="com.example.runnershi_develop.data.RunningStart"/>
+        <action
+            android:id="@+id/action_matching_fragment_to_match_success_fragment"
+            app:destination="@id/match_success_fragment"
+            app:popUpTo="@id/matching_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/matching_goal_fragment"
+        android:name="com.example.runnershi_develop.MatchingGoalFragment"
+        tools:layout="@layout/fragment_matching_goal">
+        <action
+            android:id="@+id/action_matching_goal_fragment_to_matching_gender_fragment"
+            app:destination="@id/matching_gender_fragment"
+            app:popUpTo="@id/matching_goal_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/matching_gender_fragment"
+        android:name="com.example.runnershi_develop.MatchingGenderFragment"
+        tools:layout="@layout/fragment_matching_gender">
+        <argument
+            android:name="goal"
+            app:argType="integer"/>
+        <action
+            android:id="@+id/action_matching_gender_fragment_to_matching_fragment"
+            app:destination="@id/matching_fragment"
+            app:popUpTo="@id/matching_gender_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -25,15 +97,18 @@
 
         <action
             android:id="@+id/action_view_pager_fragment_to_fragment_badge_detail"
-            app:destination="@id/fragment_badge_detail" />
+            app:destination="@id/badge_detail_fragment" />
         <action
             android:id="@+id/action_home_view_pager_fragment_to_runningDetailFragment"
             app:destination="@id/runningDetailFragment" />
+        <action
+            android:id="@+id/action_home_view_pager_fragment_to_matching_goal_fragment"
+            app:destination="@id/matching_goal_fragment" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_badge_detail"
+        android:id="@+id/badge_detail_fragment"
         android:name="com.example.runnershi_develop.BadgeDetailFragment"
         tools:layout="@layout/fragment_badge_detail">
 
